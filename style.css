@@ -7,7 +7,6 @@
 body {
   margin: 0;
 
-  /* 전체 기본 폰트 */
   font-family: 'Do Hyeon', sans-serif;
 
   background-image: url("./background.png");
@@ -129,16 +128,12 @@ p {
 }
 
 
-/* 이모지 */
-
 .emoji {
   font-size: 60px;
 
   margin-bottom: 20px;
 }
 
-
-/* 시작 제목 */
 
 .start-content h1 {
   font-family: 'Do Hyeon', sans-serif;
@@ -150,8 +145,6 @@ p {
   letter-spacing: -0.5px;
 }
 
-
-/* 시작 설명 */
 
 .start-content p {
   color: #777;
@@ -228,6 +221,7 @@ p {
   margin-bottom: 28px;
 }
 
+
 .axis-list {
   display: flex;
 
@@ -238,6 +232,7 @@ p {
   margin-bottom: 35px;
 }
 
+
 .axis-item {
   display: flex;
 
@@ -247,18 +242,22 @@ p {
 
   border-radius: 14px;
 
-  background: #f5f8fc;
+  /* 기존 하늘색 → 연한 노랑 */
+  background: #FFF9DF;
 }
+
 
 .axis-item b {
   width: 70px;
 
-  color: #4d8df7;
+  /* 기존 파랑 → 진한 노랑 */
+  color: #B88900;
 
   font-size: 15px;
 
   font-weight: 400;
 }
+
 
 .axis-item span {
   color: #555;
@@ -289,7 +288,7 @@ p {
 
   height: 8px;
 
-  background: #edf1f5;
+  background: #FFF4B8;
 
   border-radius: 10px;
 
@@ -298,12 +297,13 @@ p {
   margin-bottom: 30px;
 }
 
+
 #progress-bar {
   height: 100%;
 
   width: 25%;
 
-  background: #4d8df7;
+  background: #FFD50B;
 
   transition: width 0.3s ease;
 }
@@ -320,9 +320,11 @@ p {
 
   border-radius: 20px;
 
-  background: #edf5ff;
+  /* 연한 노랑 */
+  background: #FFF4B8;
 
-  color: #4d8df7;
+  /* 진한 노랑 */
+  color: #B88900;
 
   font-size: 14px;
 
@@ -355,6 +357,7 @@ p {
   gap: 15px;
 }
 
+
 .option-btn {
   width: 100%;
 
@@ -362,7 +365,7 @@ p {
 
   background: white;
 
-  border: 2px solid #e5eaf0;
+  border: 2px solid #FFE66D;
 
   border-radius: 18px;
 
@@ -381,10 +384,11 @@ p {
   transition: 0.2s;
 }
 
-.option-btn:hover {
-  border-color: #4d8df7;
 
-  background: #f7faff;
+.option-btn:hover {
+  border-color: #FFD50B;
+
+  background: #FFFBEA;
 
   transform: translateY(-2px);
 }
@@ -410,6 +414,7 @@ p {
 
   text-align: center;
 }
+
 
 .loading-icon {
   font-size: 55px;
@@ -453,7 +458,7 @@ p {
 
   font-weight: 400;
 
-  color: #4d8df7;
+  color: #D6A900;
 
   margin-top: 15px;
 
@@ -479,7 +484,7 @@ p {
 ========================= */
 
 .result-box {
-  background: #f7f9fc;
+  background: #FFF9DF;
 
   border-radius: 16px;
 
@@ -490,6 +495,7 @@ p {
   text-align: left;
 }
 
+
 .result-box h3 {
   font-family: 'Do Hyeon', sans-serif;
 
@@ -499,8 +505,9 @@ p {
 
   margin: 0 0 8px;
 
-  color: #4d8df7;
+  color: #B88900;
 }
+
 
 .result-box p {
   margin: 0;
@@ -527,8 +534,9 @@ p {
   margin: 18px 0 25px;
 }
 
+
 .axis-result div {
-  background: #f5f8fc;
+  background: #FFF9DF;
 
   border-radius: 10px;
 
