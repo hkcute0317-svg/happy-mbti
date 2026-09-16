@@ -589,9 +589,9 @@ p {
 }
 .turn-image {
   position: fixed;
-  right: -50px;
-  bottom: -50px;
-  width: 200px;
+  right: -80px;
+  bottom: -80px;
+  width: 350px;
   height: auto;
   z-index: 1000;
 }
