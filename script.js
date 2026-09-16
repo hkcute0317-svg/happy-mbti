@@ -188,6 +188,8 @@ function startTest() {
 
   goToScreen("question-screen");
 
+    renderQuestion();
+
   renderQuestion();
 
 }
