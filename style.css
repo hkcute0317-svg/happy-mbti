@@ -30,12 +30,12 @@ body {
 
   background: rgba(255, 255, 255, 0.92);
 
-  border-radius: 28px;
+  border-radius: 0px;
 
   padding: 32px 24px;
 
   box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.1);
+    0 0px 0px rgba(0, 0, 0, 0);
 
   overflow: hidden;
 
@@ -164,7 +164,7 @@ p {
 
   border: none;
 
-  border-radius: 15px;
+  border-radius: 0px;
 
   padding: 16px;
 
@@ -240,7 +240,7 @@ p {
 
   padding: 15px;
 
-  border-radius: 14px;
+  border-radius: 0px;
 
   /* 기존 하늘색 → 연한 노랑 */
   background: #FFF9DF;
@@ -290,7 +290,7 @@ p {
 
   background: #FFF4B8;
 
-  border-radius: 10px;
+  border-radius: 0px;
 
   overflow: hidden;
 
@@ -318,7 +318,7 @@ p {
 
   padding: 7px 12px;
 
-  border-radius: 20px;
+  border-radius: 0px;
 
   /* 연한 노랑 */
   background: #FFF4B8;
@@ -367,7 +367,7 @@ p {
 
   border: 2px solid #FFE66D;
 
-  border-radius: 18px;
+  border-radius: 0px;
 
   text-align: left;
 
@@ -486,7 +486,7 @@ p {
 .result-box {
   background: #FFF9DF;
 
-  border-radius: 16px;
+  border-radius: 0px;
 
   padding: 18px;
 
@@ -538,7 +538,7 @@ p {
 .axis-result div {
   background: #FFF9DF;
 
-  border-radius: 10px;
+  border-radius: 0px;
 
   padding: 10px;
 
@@ -565,7 +565,7 @@ p {
 
     max-width: 380px;
 
-    border-radius: 24px;
+    border-radius: 0px;
 
     padding: 28px 20px;
   }
