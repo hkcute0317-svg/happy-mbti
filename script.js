@@ -145,6 +145,48 @@ let currentQuestionIndex = 0;
 let userAnswers = [];
 
 
+/* 이미지 회전 */
+
+let rotation = 0;
+
+
+function rotateTurnImage(degree) {
+
+  rotation += degree;
+
+  const image =
+    document.querySelector(".turn-image");
+
+  if (image) {
+
+    image.style.transform =
+      `rotate(${rotation}deg)`;
+
+  }
+
+}
+
+
+
+/* 회전 초기화 */
+
+function resetTurnImage() {
+
+  rotation = 0;
+
+  const image =
+    document.querySelector(".turn-image");
+
+  if (image) {
+
+    image.style.transform =
+      "rotate(0deg)";
+
+  }
+
+}
+
+
 
 /* 화면 이동 */
 
@@ -175,9 +217,16 @@ function startTest() {
 
   userAnswers = [];
 
+  resetTurnImage();
+
   goToScreen("question-screen");
 
   renderQuestion();
+
+
+  /* 시작 화면 → 1번 문항 */
+
+  rotateTurnImage(90);
 
 }
 
@@ -287,6 +336,11 @@ function selectOption(choice) {
 
     renderQuestion();
 
+
+    /* 다음 문항 → 90도 회전 */
+
+    rotateTurnImage(90);
+
   } else {
 
     calculateResult();
@@ -306,6 +360,11 @@ function prevQuestion() {
     currentQuestionIndex--;
 
     renderQuestion();
+
+
+    /* 이전 문항 → 반대 방향 90도 */
+
+    rotateTurnImage(-90);
 
   }
 
@@ -495,6 +554,8 @@ function showResultScreen(
 /* 다시 시작 */
 
 function restartTest() {
+
+  resetTurnImage();
 
   goToScreen(
     "start-screen"
