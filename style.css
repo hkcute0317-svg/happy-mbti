@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Jua&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Press+Start+2P&display=swap');
 
 * {
   box-sizing: border-box;
@@ -7,7 +7,8 @@
 body {
   margin: 0;
 
-  font-family: 'Jua', sans-serif;
+  /* 전체 기본 폰트 */
+  font-family: 'Do Hyeon', sans-serif;
 
   background-image: url("./background.png");
   background-size: cover;
@@ -19,7 +20,9 @@ body {
 }
 
 
-/* 전체 카드 */
+/* =========================
+   전체 카드
+========================= */
 
 .app-card {
   width: 85%;
@@ -41,7 +44,9 @@ body {
 }
 
 
-/* 화면 */
+/* =========================
+   화면
+========================= */
 
 .screen {
   display: none;
@@ -72,36 +77,44 @@ body {
 }
 
 
-/* 기본 글자 */
+/* =========================
+   기본 글자
+========================= */
 
 h1 {
-  font-family: 'Jua', sans-serif;
+  font-family: 'Do Hyeon', sans-serif;
 
-  font-size: 30px;
+  font-size: 32px;
 
   margin: 0 0 12px;
 
-  font-weight: 900;
+  font-weight: 400;
+
+  letter-spacing: -0.3px;
 }
 
 h2 {
-  font-family: 'Jua', sans-serif;
+  font-family: 'Do Hyeon', sans-serif;
 
-  font-size: 24px;
+  font-size: 25px;
 
-  line-height: 1.4;
+  line-height: 1.45;
 
   margin: 20px 0;
 
-  font-weight: 800;
+  font-weight: 400;
 }
 
 p {
+  font-family: 'Do Hyeon', sans-serif;
+
   line-height: 1.7;
 }
 
 
-/* 시작 화면 */
+/* =========================
+   시작 화면
+========================= */
 
 #start-screen {
   justify-content: center;
@@ -115,35 +128,43 @@ p {
   width: 100%;
 }
 
-.emoji {
-  font-family: 'Jua', sans-serif;
 
+/* 이모지 */
+
+.emoji {
   font-size: 60px;
 
   margin-bottom: 20px;
-}
-
-.start-content p {
-  color: #777;
-
-  margin-bottom: 40px;
 }
 
 
 /* 시작 제목 */
 
 .start-content h1 {
-  font-family: 'Jua', sans-serif;
+  font-family: 'Do Hyeon', sans-serif;
 
-  font-size: 30px;
+  font-size: 32px;
 
-  font-weight: 900;
+  font-weight: 400;
 
   letter-spacing: -0.5px;
 }
 
 
-/* 버튼 */
+/* 시작 설명 */
+
+.start-content p {
+  color: #777;
+
+  font-size: 16px;
+
+  margin-bottom: 40px;
+}
+
+
+/* =========================
+   버튼
+========================= */
 
 .main-btn {
   width: 100%;
@@ -158,11 +179,11 @@ p {
 
   color: #ffffff;
 
-  font-family: 'Jua', sans-serif;
+  font-family: 'Do Hyeon', sans-serif;
 
   font-size: 18px;
 
-  font-weight: 700;
+  font-weight: 400;
 
   cursor: pointer;
 
@@ -187,18 +208,22 @@ p {
 
   cursor: pointer;
 
-  font-family: 'Jua', sans-serif;
+  font-family: 'Do Hyeon', sans-serif;
 
-  font-size: 14px;
+  font-size: 15px;
 }
 
 
-/* 안내 */
+/* =========================
+   안내
+========================= */
 
 .guide-text {
   text-align: center;
 
   color: #666;
+
+  font-size: 16px;
 
   margin-bottom: 28px;
 }
@@ -230,15 +255,21 @@ p {
 
   color: #4d8df7;
 
-  font-weight: 900;
+  font-size: 15px;
+
+  font-weight: 400;
 }
 
 .axis-item span {
   color: #555;
+
+  font-size: 15px;
 }
 
 
-/* 질문 */
+/* =========================
+   질문
+========================= */
 
 .question-top {
   display: flex;
@@ -278,6 +309,8 @@ p {
 }
 
 
+/* 축 이름 */
+
 .axis-badge {
   display: inline-block;
 
@@ -291,20 +324,28 @@ p {
 
   color: #4d8df7;
 
-  font-size: 13px;
+  font-size: 14px;
 
-  font-weight: 700;
+  font-weight: 400;
 
   margin-bottom: 20px;
 }
 
 
+/* 질문 */
+
 #question-text {
   margin-bottom: 35px;
+
+  font-size: 23px;
+
+  line-height: 1.5;
 }
 
 
-/* 선택지 */
+/* =========================
+   선택지
+========================= */
 
 .options {
   display: flex;
@@ -327,11 +368,13 @@ p {
 
   text-align: left;
 
-  font-family: 'Jua', sans-serif;
+  font-family: 'Do Hyeon', sans-serif;
 
-  font-size: 16px;
+  font-size: 17px;
 
   line-height: 1.6;
+
+  font-weight: 400;
 
   cursor: pointer;
 
@@ -347,14 +390,18 @@ p {
 }
 
 
-/* 숨김 */
+/* =========================
+   숨김
+========================= */
 
 .hidden {
   display: none !important;
 }
 
 
-/* 로딩 */
+/* =========================
+   로딩
+========================= */
 
 #loading-screen {
   justify-content: center;
@@ -388,34 +435,48 @@ p {
 }
 
 
-/* 결과 */
+/* =========================
+   결과
+========================= */
 
 #result-screen {
   text-align: center;
 }
 
+
+/* 최종 유형 코드
+   → 픽셀체 */
 .result-code {
   font-family: 'Press Start 2P', monospace;
 
-  font-size: 32px;
+  font-size: 30px;
 
-  font-weight: 900;
+  font-weight: 400;
 
   color: #4d8df7;
 
   margin-top: 15px;
+
+  line-height: 1.5;
 }
 
-#result-type-title {
-  font-family: 'Jua', sans-serif;
 
-  font-size: 24px;
+/* 최종 유형 이름 */
+
+#result-type-title {
+  font-family: 'Do Hyeon', sans-serif;
+
+  font-size: 25px;
+
+  font-weight: 400;
 
   margin: 10px 0 28px;
 }
 
 
-/* 결과 설명 */
+/* =========================
+   결과 설명
+========================= */
 
 .result-box {
   background: #f7f9fc;
@@ -430,9 +491,11 @@ p {
 }
 
 .result-box h3 {
-  font-family: 'Jua', sans-serif;
+  font-family: 'Do Hyeon', sans-serif;
 
   font-size: 17px;
+
+  font-weight: 400;
 
   margin: 0 0 8px;
 
@@ -442,13 +505,17 @@ p {
 .result-box p {
   margin: 0;
 
-  font-size: 14px;
+  font-size: 15px;
 
   color: #555;
+
+  line-height: 1.7;
 }
 
 
-/* 축 결과 */
+/* =========================
+   축 결과
+========================= */
 
 .axis-result {
   display: grid;
@@ -467,13 +534,15 @@ p {
 
   padding: 10px;
 
-  font-size: 13px;
+  font-size: 14px;
 
   color: #555;
 }
 
 
-/* 휴대폰 */
+/* =========================
+   휴대폰
+========================= */
 
 @media (max-width: 480px) {
 
@@ -491,6 +560,22 @@ p {
     border-radius: 24px;
 
     padding: 28px 20px;
+  }
+
+  .start-content h1 {
+    font-size: 30px;
+  }
+
+  #question-text {
+    font-size: 22px;
+  }
+
+  .option-btn {
+    font-size: 16px;
+  }
+
+  .result-code {
+    font-size: 27px;
   }
 
 }
