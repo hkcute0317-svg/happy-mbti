@@ -455,3 +455,9 @@ p {
 
 }
 ```
+.emoji {
+  font-family: 'Jua', sans-serif !important;
+  font-size: 60px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
