@@ -20,9 +20,9 @@ body {
 /* 전체 카드 */
 
 .app-card {
-  width: 85%;
-  max-width: 300px;
-  min-height: 500px;
+width: 85%;
+max-width: 380px;
+min-height: 580px;
 
   background: rgba(255, 255, 255, 0.92);
 
@@ -442,19 +442,24 @@ p {
 
 /* 휴대폰 */
 
+```css
 @media (max-width: 480px) {
 
   body {
-    padding: 12px;
+    padding: 20px 12px;
   }
 
   .app-card {
-    min-height: calc(100vh - 24px);
+    width: 92%;
+    min-height: auto;
+    max-width: 380px;
 
-    border-radius: 28px;
+    border-radius: 24px;
 
-    max-width: none;
+    padding: 28px 20px;
   }
 
 }
+```
+
 ```
