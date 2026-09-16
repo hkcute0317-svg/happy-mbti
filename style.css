@@ -1,3 +1,4 @@
+```css
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Press+Start+2P&display=swap');
 
 * {
@@ -164,7 +165,7 @@ p {
 
   border: none;
 
-  border-radius: 0px;
+  border-radius: 0;
 
   padding: 16px;
 
@@ -240,9 +241,8 @@ p {
 
   padding: 15px;
 
-  border-radius: 14px;
+  border-radius: 0;
 
-  /* 기존 하늘색 → 연한 노랑 */
   background: #FFF9DF;
 }
 
@@ -250,8 +250,7 @@ p {
 .axis-item b {
   width: 70px;
 
-  /* 기존 파랑 → 진한 노랑 */
-  color: #B88900;
+  color: #FF006E;
 
   font-size: 15px;
 
@@ -290,7 +289,7 @@ p {
 
   background: #FFF4B8;
 
-  border-radius: 10px;
+  border-radius: 0;
 
   overflow: hidden;
 
@@ -318,13 +317,11 @@ p {
 
   padding: 7px 12px;
 
-  border-radius: 20px;
+  border-radius: 0;
 
-  /* 연한 노랑 */
   background: #FFF4B8;
 
-  /* 진한 노랑 */
-  color: #B88900;
+  color: #FF006E;
 
   font-size: 14px;
 
@@ -367,7 +364,7 @@ p {
 
   border: 2px solid #FFE66D;
 
-  border-radius: 18px;
+  border-radius: 0;
 
   text-align: left;
 
@@ -458,7 +455,7 @@ p {
 
   font-weight: 400;
 
-  color: #D6A900;
+  color: #FF006E;
 
   margin-top: 15px;
 
@@ -486,7 +483,7 @@ p {
 .result-box {
   background: #FFF9DF;
 
-  border-radius: 16px;
+  border-radius: 0;
 
   padding: 18px;
 
@@ -505,7 +502,7 @@ p {
 
   margin: 0 0 8px;
 
-  color: #B88900;
+  color: #FF006E;
 }
 
 
@@ -538,7 +535,7 @@ p {
 .axis-result div {
   background: #FFF9DF;
 
-  border-radius: 10px;
+  border-radius: 0;
 
   padding: 10px;
 
@@ -565,7 +562,7 @@ p {
 
     max-width: 380px;
 
-    border-radius: 24px;
+    border-radius: 0;
 
     padding: 28px 20px;
   }
@@ -587,3 +584,4 @@ p {
   }
 
 }
+```
