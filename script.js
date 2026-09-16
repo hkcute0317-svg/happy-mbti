@@ -143,6 +143,17 @@ const TYPE_DATA = {
 let currentQuestionIndex = 0;
 
 let userAnswers = [];
+let rotation = 0;
+
+function rotateTurnImage() {
+  rotation += 90;
+
+  const image = document.querySelector(".turn-image");
+
+  if (image) {
+    image.style.transform = `rotate(${rotation}deg)`;
+  }
+}
 
 
 
@@ -287,6 +298,8 @@ function selectOption(choice) {
 
     renderQuestion();
 
+      rotateTurnImage();
+
   } else {
 
     calculateResult();
@@ -306,6 +319,8 @@ function prevQuestion() {
     currentQuestionIndex--;
 
     renderQuestion();
+    
+    rotateTurnImage();
 
   }
 
