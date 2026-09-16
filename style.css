@@ -464,5 +464,11 @@ p {
 
 .start-content h1 {
   font-family: 'Jua', sans-serif !important;
+  font-size: 28px;
+  font-weight: normal;
+}
+
+.start-content h1 {
+  font-family: 'Jua', sans-serif !important;
   font-weight: normal;
 }
