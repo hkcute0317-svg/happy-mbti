@@ -111,10 +111,9 @@ p {
 
 .emoji {
   font-size: 60px;
-
   margin-bottom: 20px;
+  font-family: 'Jua', sans-serif;
 }
-
 .start-content p {
   color: #777;
 
