@@ -1,3 +1,4 @@
+```css
 * {
   box-sizing: border-box;
 }
@@ -11,6 +12,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+
+  padding: 24px;
 }
 
 
@@ -21,7 +24,7 @@ body {
   max-width: 440px;
   min-height: 640px;
 
-  background: white;
+  background: rgba(255, 255, 255, 0.92);
 
   border-radius: 28px;
 
@@ -31,6 +34,8 @@ body {
     0 15px 40px rgba(0, 0, 0, 0.1);
 
   overflow: hidden;
+
+  margin: 0 auto;
 }
 
 
@@ -356,11 +361,6 @@ p {
 }
 
 
-.loading-content p {
-  color: #777;
-}
-
-
 /* 결과 */
 
 #result-screen {
@@ -445,15 +445,16 @@ p {
 @media (max-width: 480px) {
 
   body {
-    padding: 0;
+    padding: 12px;
   }
 
   .app-card {
-    min-height: 100vh;
+    min-height: calc(100vh - 24px);
 
-    border-radius: 0;
+    border-radius: 28px;
 
     max-width: none;
   }
 
 }
+```
