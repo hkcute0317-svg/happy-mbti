@@ -587,3 +587,11 @@ p {
   }
 
 }
+.turn-image {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 80px;
+  height: auto;
+  z-index: 1000;
+}
