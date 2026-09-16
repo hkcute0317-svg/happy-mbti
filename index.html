@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -7,10 +6,8 @@
 
   <title>행복 MBTI 검사</title>
 
-  <!-- CSS 연결 -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Google Font : Jua -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -63,11 +60,181 @@
         </div>
 
         <div class="axis-item">
-          ```html
-  <script src="script.js"></script>
+          <b>M / D</b>
+          <span>순간 ↔ 지속</span>
+        </div>
+
+        <div class="axis-item">
+          <b>T / L</b>
+          <span>함께 ↔ 혼자</span>
+        </div>
+
+        <div class="axis-item">
+          <b>R / V</b>
+          <span>안정 ↔ 변화</span>
+        </div>
+
+      </div>
+
+      <button
+        class="main-btn"
+        onclick="startTest()"
+      >
+        테스트 시작
+      </button>
+
+      <button
+        class="text-btn"
+        onclick="goToScreen('start-screen')"
+      >
+        ← 처음으로
+      </button>
+
+    </section>
+
+
+    <!-- 질문 화면 -->
+    <section id="question-screen" class="screen">
+
+      <div class="question-top">
+
+        <span id="question-counter">
+          질문 1 / 4
+        </span>
+
+        <span id="progress-percent">
+          25%
+        </span>
+
+      </div>
+
+      <div class="progress-bg">
+        <div id="progress-bar"></div>
+      </div>
+
+      <div
+        id="axis-badge"
+        class="axis-badge"
+      >
+        행복의 성격 (A / P)
+      </div>
+
+      <h2 id="question-text">
+        질문
+      </h2>
+
+      <div class="options">
+
+        <button
+          class="option-btn"
+          onclick="selectOption('A')"
+        >
+          <span id="option-a-text"></span>
+        </button>
+
+        <button
+          class="option-btn"
+          onclick="selectOption('B')"
+        >
+          <span id="option-b-text"></span>
+        </button>
+
+      </div>
+
+      <button
+        id="prev-btn"
+        class="text-btn hidden"
+        onclick="prevQuestion()"
+      >
+        ← 이전 질문
+      </button>
+
+    </section>
+
+
+    <!-- 로딩 화면 -->
+    <section id="loading-screen" class="screen">
+
+      <div class="loading-content">
+
+        <div class="loading-icon">✨</div>
+
+        <h2>
+          당신의 행복을<br>
+          분석 중...
+        </h2>
+
+        <p>잠시만 기다려주세요!</p>
+
+      </div>
+
+    </section>
+
+
+    <!-- 결과 화면 -->
+    <section id="result-screen" class="screen">
+
+      <div
+        class="result-code"
+        id="result-type-code"
+      >
+        AMTR
+      </div>
+
+      <h2 id="result-type-title">
+        「행복 유형」
+      </h2>
+
+      <div class="result-box">
+
+        <h3>나의 행복 특징</h3>
+
+        <p id="trait-desc"></p>
+
+      </div>
+
+      <div class="result-box">
+
+        <h3>나에게 잘 맞는 활동</h3>
+
+        <p id="activity-desc"></p>
+
+      </div>
+
+      <div class="axis-result">
+
+        <div>
+          <span id="axis1-label"></span>
+        </div>
+
+        <div>
+          <span id="axis2-label"></span>
+        </div>
+
+        <div>
+          <span id="axis3-label"></span>
+        </div>
+
+        <div>
+          <span id="axis4-label"></span>
+        </div>
+
+      </div>
+
+      <button
+        class="main-btn"
+        onclick="restartTest()"
+      >
+        다시 테스트하기
+      </button>
+
+    </section>
+
+  </main>
+
+
+  <!-- JavaScript 연결 -->
+  <script src="./script.js"></script>
 
 </body>
 </html>
-```
-
-```
