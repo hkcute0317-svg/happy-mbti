@@ -20,9 +20,9 @@ body {
 /* 전체 카드 */
 
 .app-card {
-  width: 100%;
+  width: 85%;
   max-width: 300px;
-  min-height: 5000px;
+  min-height: 500px;
 
   background: rgba(255, 255, 255, 0.92);
 
