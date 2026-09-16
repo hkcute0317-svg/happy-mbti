@@ -143,51 +143,25 @@ const TYPE_DATA = {
 let currentQuestionIndex = 0;
 
 let userAnswers = [];
-let rotation = 0;
-
-function rotateTurnImage() {
-  rotation += 90;
-
-  const image = document.querySelector(".turn-image");
-
-  if (image) {
-    image.style.transform = `rotate(${rotation}deg)`;
-  }
-}
 
 
 
 /* 화면 이동 */
-
-let rotation = 0;
 
 function goToScreen(screenId) {
 
   document
     .querySelectorAll(".screen")
     .forEach(screen => {
+
       screen.classList.remove("active");
+
     });
+
 
   document
     .getElementById(screenId)
     .classList.add("active");
-
-
-  // 화면이 바뀔 때마다 이미지 90도 회전
-  if (screenId !== "start-screen") {
-
-    rotation += 90;
-
-    const image =
-      document.querySelector(".turn-image");
-
-    if (image) {
-      image.style.transform =
-        `rotate(${rotation}deg)`;
-    }
-
-  }
 
 }
 
@@ -202,8 +176,6 @@ function startTest() {
   userAnswers = [];
 
   goToScreen("question-screen");
-
-    renderQuestion();
 
   renderQuestion();
 
@@ -315,8 +287,6 @@ function selectOption(choice) {
 
     renderQuestion();
 
-      rotateTurnImage();
-
   } else {
 
     calculateResult();
@@ -336,8 +306,6 @@ function prevQuestion() {
     currentQuestionIndex--;
 
     renderQuestion();
-    
-    rotateTurnImage();
 
   }
 
