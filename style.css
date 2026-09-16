@@ -30,7 +30,7 @@ body {
 
   background: rgba(255, 255, 255, 0.92);
 
-  border-radius: 0px;
+  border-radius: 0;
 
   padding: 32px 24px;
 
@@ -164,7 +164,7 @@ p {
 
   border: none;
 
-  border-radius: 0px;
+  border-radius: 0;
 
   padding: 16px;
 
@@ -240,9 +240,8 @@ p {
 
   padding: 15px;
 
-  border-radius: 0px;
+  border-radius: 0;
 
-  /* 기존 하늘색 → 연한 노랑 */
   background: #FFF9DF;
 }
 
@@ -250,8 +249,8 @@ p {
 .axis-item b {
   width: 70px;
 
-  /* 기존 파랑 → 진한 노랑 */
-  color: #B88900;
+  /* 진한 노랑 → 핫핑크 */
+  color: #FF006E;
 
   font-size: 15px;
 
@@ -290,7 +289,7 @@ p {
 
   background: #FFF4B8;
 
-  border-radius: 0px;
+  border-radius: 0;
 
   overflow: hidden;
 
@@ -318,13 +317,12 @@ p {
 
   padding: 7px 12px;
 
-  border-radius: 0px;
+  border-radius: 0;
 
-  /* 연한 노랑 */
   background: #FFF4B8;
 
-  /* 진한 노랑 */
-  color: #B88900;
+  /* 진한 노랑 → 핫핑크 */
+  color: #FF006E;
 
   font-size: 14px;
 
@@ -367,7 +365,7 @@ p {
 
   border: 2px solid #FFE66D;
 
-  border-radius: 0px;
+  border-radius: 0;
 
   text-align: left;
 
@@ -458,7 +456,8 @@ p {
 
   font-weight: 400;
 
-  color: #D6A900;
+  /* 진한 노랑 → 핫핑크 */
+  color: #FF006E;
 
   margin-top: 15px;
 
@@ -486,7 +485,7 @@ p {
 .result-box {
   background: #FFF9DF;
 
-  border-radius: 0px;
+  border-radius: 0;
 
   padding: 18px;
 
@@ -505,7 +504,8 @@ p {
 
   margin: 0 0 8px;
 
-  color: #B88900;
+  /* 진한 노랑 → 핫핑크 */
+  color: #FF006E;
 }
 
 
@@ -538,7 +538,7 @@ p {
 .axis-result div {
   background: #FFF9DF;
 
-  border-radius: 0px;
+  border-radius: 0;
 
   padding: 10px;
 
@@ -565,7 +565,7 @@ p {
 
     max-width: 380px;
 
-    border-radius: 0px;
+    border-radius: 0;
 
     padding: 28px 20px;
   }
@@ -587,14 +587,30 @@ p {
   }
 
 }
+
+
+/* =========================
+   장식 이미지
+========================= */
+
 .turn-image {
   position: fixed;
+
   right: -100px;
+
   bottom: -100px;
+
   width: 310px;
+
   height: auto;
+
   z-index: 1000;
 
   transform: rotate(0deg);
+
   transition: transform 0.6s ease-in-out;
+}
+/* 모든 박스/버튼 모서리 각지게 */
+* {
+  border-radius: 0 !important;
 }
