@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Press+Start+2P&display=swap');
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
+
+  font-family: 'Jua', sans-serif;
 
   background-image: url("./background.png");
   background-size: cover;
@@ -19,9 +22,9 @@ body {
 /* 전체 카드 */
 
 .app-card {
-width: 85%;
-max-width: 380px;
-min-height: 580px;
+  width: 85%;
+  max-width: 380px;
+  min-height: 580px;
 
   background: rgba(255, 255, 255, 0.92);
 
@@ -72,6 +75,8 @@ min-height: 580px;
 /* 기본 글자 */
 
 h1 {
+  font-family: 'Jua', sans-serif;
+
   font-size: 30px;
 
   margin: 0 0 12px;
@@ -80,6 +85,8 @@ h1 {
 }
 
 h2 {
+  font-family: 'Jua', sans-serif;
+
   font-size: 24px;
 
   line-height: 1.4;
@@ -109,10 +116,13 @@ p {
 }
 
 .emoji {
-  font-size: 60px;
-  margin-bottom: 20px;
   font-family: 'Jua', sans-serif;
+
+  font-size: 60px;
+
+  margin-bottom: 20px;
 }
+
 .start-content p {
   color: #777;
 
@@ -120,21 +130,42 @@ p {
 }
 
 
+/* 시작 제목 */
+
+.start-content h1 {
+  font-family: 'Jua', sans-serif;
+
+  font-size: 30px;
+
+  font-weight: 900;
+
+  letter-spacing: -0.5px;
+}
+
+
 /* 버튼 */
 
 .main-btn {
   width: 100%;
+
   border: none;
+
   border-radius: 15px;
+
   padding: 16px;
 
   background: #FFD50B;
 
   color: #ffffff;
 
-  font-size: 17px;
+  font-family: 'Jua', sans-serif;
+
+  font-size: 18px;
+
   font-weight: 700;
+
   cursor: pointer;
+
   transition: 0.2s;
 }
 
@@ -155,6 +186,8 @@ p {
   margin: 18px auto 0;
 
   cursor: pointer;
+
+  font-family: 'Jua', sans-serif;
 
   font-size: 14px;
 }
@@ -196,6 +229,8 @@ p {
   width: 70px;
 
   color: #4d8df7;
+
+  font-weight: 900;
 }
 
 .axis-item span {
@@ -292,9 +327,9 @@ p {
 
   text-align: left;
 
-  font-family: inherit;
+  font-family: 'Jua', sans-serif;
 
-  font-size: 15px;
+  font-size: 16px;
 
   line-height: 1.6;
 
@@ -360,7 +395,9 @@ p {
 }
 
 .result-code {
-  font-size: 48px;
+  font-family: 'Press Start 2P', monospace;
+
+  font-size: 32px;
 
   font-weight: 900;
 
@@ -370,7 +407,9 @@ p {
 }
 
 #result-type-title {
-  font-size: 22px;
+  font-family: 'Jua', sans-serif;
+
+  font-size: 24px;
 
   margin: 10px 0 28px;
 }
@@ -391,7 +430,9 @@ p {
 }
 
 .result-box h3 {
-  font-size: 15px;
+  font-family: 'Jua', sans-serif;
+
+  font-size: 17px;
 
   margin: 0 0 8px;
 
@@ -434,8 +475,6 @@ p {
 
 /* 휴대폰 */
 
-```css
-```css
 @media (max-width: 480px) {
 
   body {
@@ -444,7 +483,9 @@ p {
 
   .app-card {
     width: 85%;
+
     min-height: auto;
+
     max-width: 380px;
 
     border-radius: 24px;
@@ -452,21 +493,4 @@ p {
     padding: 28px 20px;
   }
 
-}
-.emoji {
-  font-family: 'Jua', sans-serif !important;
-  font-size: 60px;
-  font-weight: normal;
-  margin-bottom: 20px;
-}
-
-.start-content h1 {
-  font-family: 'Jua', sans-serif !important;
-  font-size: 28px;
-  font-weight: normal;
-}
-
-.start-content h1 {
-  font-family: 'Jua', sans-serif !important;
-  font-weight: normal;
 }
