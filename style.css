@@ -126,23 +126,17 @@ p {
 
 .main-btn {
   width: 100%;
-
   border: none;
-
   border-radius: 15px;
-
   padding: 16px;
 
-  background: #FFD60A;
+  background: #FFD966;
 
-  color: white;
+  color: #4d8df7 !important;
 
   font-size: 17px;
-
   font-weight: 700;
-
   cursor: pointer;
-
   transition: 0.2s;
 }
 
