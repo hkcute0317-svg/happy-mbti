@@ -48,7 +48,7 @@
       <h2>행복 MBTI 테스트</h2>
 
       <p class="guide-text">
-        4가지 질문을 통해<br>
+        8가지 질문을 통해<br>
         내가 행복을 느끼는 방식을 알아봐요.
       </p>
 
@@ -99,18 +99,20 @@
       <div class="question-top">
 
         <span id="question-counter">
-          질문 1 / 4
+          질문 1 / 8
         </span>
 
         <span id="progress-percent">
-          25%
+          13%
         </span>
 
       </div>
+
 
       <div class="progress-bg">
         <div id="progress-bar"></div>
       </div>
+
 
       <div
         id="axis-badge"
@@ -119,27 +121,84 @@
         행복의 성격 (A / P)
       </div>
 
+
       <h2 id="question-text">
-        질문
+        A 성향에 가까운 질문 삽입
       </h2>
 
-      <div class="options">
 
-        <button
-          class="option-btn"
-          onclick="selectOption('A')"
-        >
-          <span id="option-a-text"></span>
-        </button>
+      <!-- 7단계 응답 -->
 
-        <button
-          class="option-btn"
-          onclick="selectOption('B')"
-        >
-          <span id="option-b-text"></span>
-        </button>
+      <div class="scale-area">
+
+        <div class="scale-labels">
+
+          <span id="left-label">
+            그렇다
+          </span>
+
+          <span id="right-label">
+            그렇지 않다
+          </span>
+
+        </div>
+
+
+        <div class="scale">
+
+          <!-- 매우 그렇다 -->
+          <button
+            class="scale-btn scale-1"
+            onclick="selectScale(0)"
+            aria-label="매우 그렇다"
+          ></button>
+
+          <!-- 그렇다 -->
+          <button
+            class="scale-btn scale-2"
+            onclick="selectScale(1)"
+            aria-label="그렇다"
+          ></button>
+
+          <!-- 약간 그렇다 -->
+          <button
+            class="scale-btn scale-3"
+            onclick="selectScale(2)"
+            aria-label="약간 그렇다"
+          ></button>
+
+          <!-- 중립 -->
+          <button
+            class="scale-btn scale-4"
+            onclick="selectScale(3)"
+            aria-label="중립"
+          ></button>
+
+          <!-- 약간 그렇지 않다 -->
+          <button
+            class="scale-btn scale-3"
+            onclick="selectScale(4)"
+            aria-label="약간 그렇지 않다"
+          ></button>
+
+          <!-- 그렇지 않다 -->
+          <button
+            class="scale-btn scale-2"
+            onclick="selectScale(5)"
+            aria-label="그렇지 않다"
+          ></button>
+
+          <!-- 매우 그렇지 않다 -->
+          <button
+            class="scale-btn scale-1"
+            onclick="selectScale(6)"
+            aria-label="매우 그렇지 않다"
+          ></button>
+
+        </div>
 
       </div>
+
 
       <button
         id="prev-btn"
@@ -236,6 +295,7 @@
   <!-- JavaScript 연결 -->
   <script src="./script.js"></script>
 
-<img src="turn-image.png" class="turn-image">
+  <img src="turn-image.png" class="turn-image">
+
 </body>
 </html>
