@@ -4,7 +4,7 @@
 body {
   margin: 0;
   font-family: 'Gothic A1', sans-serif;
-  font-weight: 800;
+  font-weight: 1000;
 
   /* 나머지는 그대로 */
 }
@@ -85,7 +85,7 @@ h1 {
   font-family: 'Gothic A1', sans-serif;
   font-size: 32px;
   margin: 0 0 12px;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: -0.3px;
 }
 
@@ -101,7 +101,7 @@ h2 {
 
 p {
   font-family: 'Gothic A1', sans-serif;
-  font-weight: 500;
+  font-weight: 800;
   line-height: 1.7;
 }
 
