@@ -735,15 +735,14 @@ function showResultScreen(
     })`;
 
 
-  document.getElementById(
-    "axis4-label"
-  ).innerText =
-    `${code[3]} (${
-      code[3] === "R"
-        ? "안정"
-        : "변화"
-    )`;
-
+document.getElementById(
+  "axis4-label"
+).innerText =
+  `${code[3]} (${
+    code[3] === "R"
+      ? "안정"
+      : "변화"
+  })`;
 
 
   goToScreen(
