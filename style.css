@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800;900&family=Press+Start+2P&display=swap');
 
 * {
   box-sizing: border-box;
@@ -6,8 +6,7 @@
 
 body {
   margin: 0;
-
-  font-family: 'Do Hyeon', sans-serif;
+  font-family: 'Gothic A1', sans-serif;
 
   background-image: url("./newbackground.png");
   background-size: cover;
@@ -31,14 +30,12 @@ body {
   background: rgba(255, 255, 255, 0.6);
 
   border-radius: 0;
-
   padding: 32px 24px;
 
   box-shadow:
     0 0px 0px rgba(0, 0, 0, 0);
 
   overflow: hidden;
-
   margin: 0 auto;
 }
 
@@ -49,20 +46,17 @@ body {
 
 .screen {
   display: none;
-
   min-height: 576px;
 }
 
 .screen.active {
   display: flex;
   flex-direction: column;
-
   animation: fadeIn 0.3s ease;
 }
 
 
 @keyframes fadeIn {
-
   from {
     opacity: 0;
     transform: translateY(10px);
@@ -72,7 +66,6 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-
 }
 
 
@@ -81,32 +74,27 @@ body {
 ========================= */
 
 h1 {
-  font-family: 'Do Hyeon', sans-serif;
+  font-family: 'Gothic A1', sans-serif;
 
   font-size: 32px;
-
   margin: 0 0 12px;
 
   font-weight: 400;
-
   letter-spacing: -0.3px;
 }
 
 h2 {
-  font-family: 'Do Hyeon', sans-serif;
+  font-family: 'Gothic A1', sans-serif;
 
   font-size: 25px;
-
   line-height: 1.45;
 
   margin: 20px 0;
-
   font-weight: 400;
 }
 
 p {
-  font-family: 'Do Hyeon', sans-serif;
-
+  font-family: 'Gothic A1', sans-serif;
   line-height: 1.7;
 }
 
@@ -117,9 +105,7 @@ p {
 
 #start-screen {
   justify-content: center;
-
   align-items: center;
-
   text-align: center;
 }
 
@@ -127,30 +113,23 @@ p {
   width: 100%;
 }
 
-
 .emoji {
   font-size: 60px;
-
   margin-bottom: 20px;
 }
 
-
 .start-content h1 {
-  font-family: 'Do Hyeon', sans-serif;
+  font-family: 'Gothic A1', sans-serif;
 
   font-size: 32px;
-
   font-weight: 400;
-
   letter-spacing: -0.5px;
 }
-
 
 .start-content p {
   color: #777;
 
   font-size: 16px;
-
   margin-bottom: 40px;
 }
 
@@ -163,36 +142,30 @@ p {
   width: 100%;
 
   border: none;
-
   border-radius: 0;
 
   padding: 16px;
 
   background: #FFD50B;
-
   color: #ffffff;
 
-  font-family: 'Do Hyeon', sans-serif;
+  font-family: 'Gothic A1', sans-serif;
 
   font-size: 18px;
-
   font-weight: 400;
 
   cursor: pointer;
-
   transition: 0.2s;
 }
 
 .main-btn:hover {
   transform: translateY(-2px);
-
   opacity: 0.9;
 }
 
 
 .text-btn {
   border: none;
-
   background: none;
 
   color: #777;
@@ -201,7 +174,7 @@ p {
 
   cursor: pointer;
 
-  font-family: 'Do Hyeon', sans-serif;
+  font-family: 'Gothic A1', sans-serif;
 
   font-size: 15px;
 }
@@ -217,31 +190,26 @@ p {
   color: #666;
 
   font-size: 16px;
-
   margin-bottom: 28px;
 }
 
 
 .axis-list {
   display: flex;
-
   flex-direction: column;
 
   gap: 12px;
-
   margin-bottom: 35px;
 }
 
 
 .axis-item {
   display: flex;
-
   align-items: center;
 
   padding: 15px;
 
   border-radius: 0;
-
   background: #FFF9DF;
 }
 
@@ -249,18 +217,15 @@ p {
 .axis-item b {
   width: 70px;
 
-  /* 진한 노랑 → 핫핑크 */
   color: #FF006E;
 
   font-size: 15px;
-
   font-weight: 400;
 }
 
 
 .axis-item span {
   color: #555;
-
   font-size: 15px;
 }
 
@@ -271,35 +236,29 @@ p {
 
 .question-top {
   display: flex;
-
   justify-content: space-between;
 
   color: #777;
 
   font-size: 14px;
-
   margin-bottom: 10px;
 }
 
 
 .progress-bg {
   width: 100%;
-
   height: 8px;
 
   background: #FFF4B8;
-
   border-radius: 0;
 
   overflow: hidden;
-
   margin-bottom: 30px;
 }
 
 
 #progress-bar {
   height: 100%;
-
   width: 25%;
 
   background: #FFD50B;
@@ -312,20 +271,16 @@ p {
 
 .axis-badge {
   display: inline-block;
-
   width: fit-content;
 
   padding: 7px 12px;
 
   border-radius: 0;
-
   background: #FFF4B8;
 
-  /* 진한 노랑 → 핫핑크 */
   color: #FF006E;
 
   font-size: 14px;
-
   font-weight: 400;
 
   margin-bottom: 20px;
@@ -338,7 +293,6 @@ p {
   margin-bottom: 35px;
 
   font-size: 23px;
-
   line-height: 1.5;
 }
 
@@ -350,15 +304,14 @@ p {
 .scale-area {
   width: 100%;
   margin-top: auto;
+
   transform: translateY(-230px);
 }
 
 
 .scale-labels {
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
 
   margin-bottom: 15px;
@@ -371,7 +324,6 @@ p {
   color: #FF006E;
 }
 
-
 #right-label {
   color: #FF006E;
 }
@@ -381,9 +333,7 @@ p {
   width: 100%;
 
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
 
   padding: 0 2px;
@@ -449,7 +399,6 @@ p {
 
 .scale-btn:hover {
   transform: scale(1.12);
-
   background: #FFF4B8;
 }
 
@@ -513,16 +462,13 @@ p {
 
 #loading-screen {
   justify-content: center;
-
   align-items: center;
-
   text-align: center;
 }
 
 
 .loading-icon {
   font-size: 55px;
-
   animation: spin 1.2s infinite;
 }
 
@@ -555,18 +501,16 @@ p {
 
 /* 최종 유형 코드
    → 픽셀체 */
+
 .result-code {
   font-family: 'Press Start 2P', monospace;
 
   font-size: 30px;
-
   font-weight: 400;
 
-  /* 진한 노랑 → 핫핑크 */
   color: #FF006E;
 
   margin-top: 15px;
-
   line-height: 1.5;
 }
 
@@ -574,10 +518,9 @@ p {
 /* 최종 유형 이름 */
 
 #result-type-title {
-  font-family: 'Do Hyeon', sans-serif;
+  font-family: 'Gothic A1', sans-serif;
 
   font-size: 25px;
-
   font-weight: 400;
 
   margin: 10px 0 28px;
@@ -594,7 +537,6 @@ p {
   border-radius: 0;
 
   padding: 18px;
-
   margin-bottom: 12px;
 
   text-align: left;
@@ -602,15 +544,13 @@ p {
 
 
 .result-box h3 {
-  font-family: 'Do Hyeon', sans-serif;
+  font-family: 'Gothic A1', sans-serif;
 
   font-size: 17px;
-
   font-weight: 400;
 
   margin: 0 0 8px;
 
-  /* 진한 노랑 → 핫핑크 */
   color: #FF006E;
 }
 
@@ -619,7 +559,6 @@ p {
   margin: 0;
 
   font-size: 15px;
-
   color: #555;
 
   line-height: 1.7;
@@ -636,7 +575,6 @@ p {
   grid-template-columns: 1fr 1fr;
 
   gap: 8px;
-
   margin: 18px 0 25px;
 }
 
@@ -649,7 +587,6 @@ p {
   padding: 10px;
 
   font-size: 14px;
-
   color: #555;
 }
 
@@ -668,11 +605,9 @@ p {
     width: 85%;
 
     min-height: auto;
-
     max-width: 380px;
 
     border-radius: 0;
-
     padding: 28px 20px;
   }
 
@@ -703,11 +638,9 @@ p {
   position: fixed;
 
   right: -100px;
-
   bottom: -100px;
 
   width: 310px;
-
   height: auto;
 
   z-index: 1000;
@@ -716,10 +649,14 @@ p {
 
   transition: transform 0.6s ease-in-out;
 }
+
+
 /* 모든 박스/버튼 모서리 각지게 */
+
 * {
   border-radius: 0 !important;
 }
+
 .scale-btn {
   border-radius: 50% !important;
 }
