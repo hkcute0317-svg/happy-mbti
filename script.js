@@ -1,3 +1,4 @@
+alert("JS 연결됨!");
 const QUESTIONS = [
 
   {
