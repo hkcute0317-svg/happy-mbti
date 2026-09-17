@@ -150,3 +150,7 @@
   }
 
 }
+
+.scale-btn {
+  border-radius: 50% !important;
+}
