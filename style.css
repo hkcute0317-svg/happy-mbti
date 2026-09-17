@@ -350,7 +350,7 @@ p {
 .scale-area {
   width: 100%;
   margin-top: auto;
-  transform: translateY(-30px);
+  transform: translateY(-100px);
 }
 
 
