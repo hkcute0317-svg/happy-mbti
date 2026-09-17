@@ -1,5 +1,13 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800;900&family=Press+Start+2P&display=swap');
 
+body {
+  margin: 0;
+  font-family: 'Gothic A1', sans-serif;
+  font-weight: 500;
+
+  /* 나머지는 그대로 */
+}
 * {
   box-sizing: border-box;
 }
@@ -75,11 +83,9 @@ body {
 
 h1 {
   font-family: 'Gothic A1', sans-serif;
-
   font-size: 32px;
   margin: 0 0 12px;
-
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: -0.3px;
 }
 
