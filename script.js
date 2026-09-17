@@ -2,112 +2,75 @@ const QUESTIONS = [
 
   {
     id: 1,
-
     axis: "AP",
-
+    direction: "A",
     badge: "행복의 성격 (A / P)",
-
-    question:
-      "주말에 시간이 생겼을 때, 나를 더 행복하게 만드는 것은?",
-
-    optionA: {
-      text:
-        "🎯 세워둔 목표를 달성하거나 공부를 끝냈을 때의 뿌듯함",
-
-      type: "A"
-    },
-
-    optionB: {
-      text:
-        "🍕 맛있는 음식을 먹으며 재밌는 영상을 볼 때의 즐거움",
-
-      type: "P"
-    }
+    question: "[A 성향에 가까운 질문 삽입]"
   },
-
 
   {
     id: 2,
-
-    axis: "MD",
-
-    badge: "행복의 지속 (M / D)",
-
-    question:
-      "내가 더 좋아하는 행복의 느낌은 어떤 쪽인가요?",
-
-    optionA: {
-      text:
-        "⚡ 롤러코스터처럼 짧고 강렬하게 터지는 듯한 행복",
-
-      type: "M"
-    },
-
-    optionB: {
-      text:
-        "🌿 잔잔하고 평온하게 오랫동안 마음속에 남는 행복",
-
-      type: "D"
-    }
+    axis: "AP",
+    direction: "P",
+    badge: "행복의 성격 (A / P)",
+    question: "[P 성향에 가까운 질문 삽입]"
   },
-
 
   {
     id: 3,
-
-    axis: "TL",
-
-    badge: "행복의 관계 (T / L)",
-
-    question:
-      "기분 좋은 일이 생겼을 때 나의 행동에 더 가까운 것은?",
-
-    optionA: {
-      text:
-        "👥 친구들이나 가족에게 바로 알려서 같이 기뻐한다",
-
-      type: "T"
-    },
-
-    optionB: {
-      text:
-        "🎧 나만의 공간에서 혼자 차분하게 여유를 즐긴다",
-
-      type: "L"
-    }
+    axis: "MD",
+    direction: "M",
+    badge: "행복의 지속 (M / D)",
+    question: "[M 성향에 가까운 질문 삽입]"
   },
-
 
   {
     id: 4,
+    axis: "MD",
+    direction: "D",
+    badge: "행복의 지속 (M / D)",
+    question: "[D 성향에 가까운 질문 삽입]"
+  },
 
+  {
+    id: 5,
+    axis: "TL",
+    direction: "T",
+    badge: "행복의 관계 (T / L)",
+    question: "[T 성향에 가까운 질문 삽입]"
+  },
+
+  {
+    id: 6,
+    axis: "TL",
+    direction: "L",
+    badge: "행복의 관계 (T / L)",
+    question: "[L 성향에 가까운 질문 삽입]"
+  },
+
+  {
+    id: 7,
     axis: "RV",
-
+    direction: "R",
     badge: "행복의 환경 (R / V)",
+    question: "[R 성향에 가까운 질문 삽입]"
+  },
 
-    question:
-      "새 학기가 시작되었을 때 더 기대되는 상황은?",
-
-    optionA: {
-      text:
-        "🏫 친한 친구들과 익숙하고 편안하게 교실 생활을 할 때",
-
-      type: "R"
-    },
-
-    optionB: {
-      text:
-        "✨ 새로운 친구들을 만나고 색다른 활동에 도전할 때",
-
-      type: "V"
-    }
+  {
+    id: 8,
+    axis: "RV",
+    direction: "V",
+    badge: "행복의 환경 (R / V)",
+    question: "[V 성향에 가까운 질문 삽입]"
   }
 
 ];
 
 
 
-/* 테스트용 결과 데이터 */
+/* =========================
+   결과 데이터
+========================= */
 
 const TYPE_DATA = {
 
@@ -179,12 +142,19 @@ const TYPE_DATA = {
 
 
 
+/* =========================
+   변수
+========================= */
+
 let currentQuestionIndex = 0;
 
 let userAnswers = [];
 
 
-/* 이미지 회전 */
+
+/* =========================
+   이미지 회전
+========================= */
 
 let rotation = 0;
 
@@ -227,7 +197,9 @@ function resetTurnImage() {
 
 
 
-/* 화면 이동 */
+/* =========================
+   화면 이동
+========================= */
 
 function goToScreen(screenId) {
 
@@ -248,7 +220,9 @@ function goToScreen(screenId) {
 
 
 
-/* 테스트 시작 */
+/* =========================
+   테스트 시작
+========================= */
 
 function startTest() {
 
@@ -262,7 +236,6 @@ function startTest() {
 
   renderQuestion();
 
-
   /* 시작 화면 → 1번 문항 */
 
   rotateTurnImage(90);
@@ -271,7 +244,9 @@ function startTest() {
 
 
 
-/* 질문 표시 */
+/* =========================
+   질문 표시
+========================= */
 
 function renderQuestion() {
 
@@ -279,11 +254,16 @@ function renderQuestion() {
     QUESTIONS[currentQuestionIndex];
 
 
+  /* 질문 번호 */
+
   document.getElementById(
     "question-counter"
   ).innerText =
     `질문 ${currentQuestionIndex + 1} / ${QUESTIONS.length}`;
 
+
+
+  /* 진행률 */
 
   const percent =
     Math.round(
@@ -304,11 +284,17 @@ function renderQuestion() {
     `${percent}%`;
 
 
+
+  /* 축 이름 */
+
   document.getElementById(
     "axis-badge"
   ).innerText =
     q.badge;
 
+
+
+  /* 질문 */
 
   document.getElementById(
     "question-text"
@@ -316,18 +302,37 @@ function renderQuestion() {
     q.question;
 
 
-  document.getElementById(
-    "option-a-text"
-  ).innerText =
-    q.optionA.text;
+
+  /* 양쪽 설명 */
+
+  const scaleLeft =
+    document.getElementById("scale-left");
+
+  const scaleRight =
+    document.getElementById("scale-right");
 
 
-  document.getElementById(
-    "option-b-text"
-  ).innerText =
-    q.optionB.text;
+  if (scaleLeft) {
+
+    scaleLeft.innerText =
+      q.direction;
+
+  }
 
 
+  if (scaleRight) {
+
+    const opposite =
+      getOppositeType(q.direction);
+
+    scaleRight.innerText =
+      opposite;
+
+  }
+
+
+
+  /* 이전 질문 버튼 */
 
   const prevBtn =
     document.getElementById("prev-btn");
@@ -343,46 +348,38 @@ function renderQuestion() {
 
   }
 
-}
+
+
+  /* 기존 선택 초기화 */
+
+  document
+    .querySelectorAll(".scale-btn")
+    .forEach(button => {
+
+      button.classList.remove("selected");
+
+    });
 
 
 
-/* 선택 */
-
-function selectOption(choice) {
-
-  const q =
-    QUESTIONS[currentQuestionIndex];
-
-
-  const selectedType =
-    choice === "A"
-      ? q.optionA.type
-      : q.optionB.type;
-
-
-  userAnswers[currentQuestionIndex] =
-    selectedType;
-
-
+  /* 이전에 선택한 답이 있다면 표시 */
 
   if (
-    currentQuestionIndex + 1 <
-    QUESTIONS.length
+    userAnswers[currentQuestionIndex] !== undefined
   ) {
 
-    currentQuestionIndex++;
+    const selectedIndex =
+      userAnswers[currentQuestionIndex];
 
-    renderQuestion();
+    const buttons =
+      document.querySelectorAll(".scale-btn");
 
+    if (buttons[selectedIndex]) {
 
-    /* 다음 문항 → 90도 회전 */
+      buttons[selectedIndex]
+        .classList.add("selected");
 
-    rotateTurnImage(90);
-
-  } else {
-
-    calculateResult();
+    }
 
   }
 
@@ -390,7 +387,115 @@ function selectOption(choice) {
 
 
 
-/* 이전 질문 */
+/* =========================
+   반대 성향 가져오기
+========================= */
+
+function getOppositeType(type) {
+
+  const opposites = {
+
+    A: "P",
+    P: "A",
+
+    M: "D",
+    D: "M",
+
+    T: "L",
+    L: "T",
+
+    R: "V",
+    V: "R"
+
+  };
+
+
+  return opposites[type];
+
+}
+
+
+
+/* =========================
+   7단계 척도 선택
+========================= */
+
+/*
+   0 = 매우 그렇다      +3
+   1 = 그렇다           +2
+   2 = 약간 그렇다      +1
+   3 = 중립              0
+   4 = 약간 그렇지 않다 -1
+   5 = 그렇지 않다      -2
+   6 = 매우 그렇지 않다 -3
+*/
+
+function selectScale(index) {
+
+  const q =
+    QUESTIONS[currentQuestionIndex];
+
+
+  /* 선택 표시 */
+
+  const buttons =
+    document.querySelectorAll(".scale-btn");
+
+
+  buttons.forEach(button => {
+
+    button.classList.remove("selected");
+
+  });
+
+
+  if (buttons[index]) {
+
+    buttons[index].classList.add("selected");
+
+  }
+
+
+
+  /* 답 저장 */
+
+  userAnswers[currentQuestionIndex] =
+    index;
+
+
+
+  /* 다음 질문 */
+
+  setTimeout(() => {
+
+    if (
+      currentQuestionIndex + 1 <
+      QUESTIONS.length
+    ) {
+
+      currentQuestionIndex++;
+
+      renderQuestion();
+
+      /* 다음 문항 → 90도 회전 */
+
+      rotateTurnImage(90);
+
+    } else {
+
+      calculateResult();
+
+    }
+
+  }, 250);
+
+}
+
+
+
+/* =========================
+   이전 질문
+========================= */
 
 function prevQuestion() {
 
@@ -399,7 +504,6 @@ function prevQuestion() {
     currentQuestionIndex--;
 
     renderQuestion();
-
 
     /* 이전 문항 → 반대 방향 90도 */
 
@@ -411,7 +515,9 @@ function prevQuestion() {
 
 
 
-/* 결과 계산 */
+/* =========================
+   점수 계산
+========================= */
 
 function calculateResult() {
 
@@ -420,7 +526,7 @@ function calculateResult() {
 
   setTimeout(() => {
 
-    const counts = {
+    const scores = {
 
       A: 0,
       P: 0,
@@ -437,13 +543,57 @@ function calculateResult() {
     };
 
 
-    userAnswers.forEach(type => {
 
-      if (
-        counts[type] !== undefined
-      ) {
+    /*
+      모든 답을 다시 계산한다.
 
-        counts[type]++;
+      이렇게 하면
+      이전 질문으로 돌아가 답을 바꿔도
+      점수가 중복해서 쌓이지 않는다.
+    */
+
+    userAnswers.forEach((answerIndex, questionIndex) => {
+
+      const q =
+        QUESTIONS[questionIndex];
+
+
+      if (answerIndex === undefined) {
+        return;
+      }
+
+
+      const weights = [
+        3,
+        2,
+        1,
+        0,
+        -1,
+        -2,
+        -3
+      ];
+
+
+      const weight =
+        weights[answerIndex];
+
+
+      /*
+        질문이 A 방향이면
+
+        + 점수 → A
+        - 점수 → P
+      */
+
+      if (weight > 0) {
+
+        scores[q.direction] += weight;
+
+      } else if (weight < 0) {
+
+        scores[
+          getOppositeType(q.direction)
+        ] += Math.abs(weight);
 
       }
 
@@ -451,30 +601,36 @@ function calculateResult() {
 
 
 
+    /* =====================
+       각 축 결과
+    ===================== */
+
     const codeAxis1 =
-      counts.A >= counts.P
+      scores.A >= scores.P
         ? "A"
         : "P";
 
 
     const codeAxis2 =
-      counts.M >= counts.D
+      scores.M >= scores.D
         ? "M"
         : "D";
 
 
     const codeAxis3 =
-      counts.T >= counts.L
+      scores.T >= scores.L
         ? "T"
         : "L";
 
 
     const codeAxis4 =
-      counts.R >= counts.V
+      scores.R >= scores.V
         ? "R"
         : "V";
 
 
+
+    /* 최종 유형 코드 */
 
     const resultCode =
       `${codeAxis1}${codeAxis2}${codeAxis3}${codeAxis4}`;
@@ -483,7 +639,7 @@ function calculateResult() {
 
     showResultScreen(
       resultCode,
-      counts
+      scores
     );
 
   }, 1200);
@@ -492,11 +648,13 @@ function calculateResult() {
 
 
 
-/* 결과 표시 */
+/* =========================
+   결과 표시
+========================= */
 
 function showResultScreen(
   code,
-  counts
+  scores
 ) {
 
   document.getElementById(
@@ -528,18 +686,24 @@ function showResultScreen(
     `「${data.title}」`;
 
 
+
   document.getElementById(
     "trait-desc"
   ).innerText =
-    data.desc;
+    data.desc || "상세 설명을 준비 중입니다.";
+
 
 
   document.getElementById(
     "activity-desc"
   ).innerText =
-    data.activities;
+    data.activities || "추천 활동을 준비 중입니다.";
 
 
+
+  /* =====================
+     축별 결과
+  ===================== */
 
   document.getElementById(
     "axis1-label"
@@ -578,7 +742,7 @@ function showResultScreen(
       code[3] === "R"
         ? "안정"
         : "변화"
-    })`;
+    )`;
 
 
 
@@ -590,7 +754,9 @@ function showResultScreen(
 
 
 
-/* 다시 시작 */
+/* =========================
+   다시 시작
+========================= */
 
 function restartTest() {
 
