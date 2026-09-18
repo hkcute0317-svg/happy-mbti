@@ -667,3 +667,245 @@ p {
 .scale-btn {
   border-radius: 50% !important;
 }
+```css
+/* =========================
+   특수질문
+========================= */
+
+#special-question-screen {
+  text-align: center;
+}
+
+#special-question-screen .question-top {
+  text-align: left;
+}
+
+#special-question-screen .axis-badge {
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+#special-question-text {
+  font-size: 23px;
+  line-height: 1.5;
+  margin: 0;
+  min-height: 105px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================
+   특수질문 선택지
+========================= */
+
+.special-options {
+  display: flex;
+  gap: 12px;
+
+  width: 100%;
+
+  margin-top: auto;
+  margin-bottom: 70px;
+}
+
+
+.special-btn {
+  flex: 1;
+
+  min-height: 110px;
+
+  border: 3px solid #FF006E;
+  background: white;
+
+  color: #222;
+
+  font-family: 'Gothic A1', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+
+.special-btn:hover {
+  background: #FFF4B8;
+  transform: translateY(-3px);
+}
+
+
+.special-btn:active {
+  transform: scale(0.97);
+}
+
+
+/* =========================
+   휴대폰
+========================= */
+
+@media (max-width: 480px) {
+
+  #special-question-text {
+    font-size: 21px;
+    min-height: 100px;
+  }
+
+  .special-options {
+    gap: 10px;
+    margin-bottom: 50px;
+  }
+
+  .special-btn {
+    min-height: 100px;
+
+    font-size: 17px;
+  }
+
+}
+/* =========================
+   특수 질문
+========================= */
+
+#special-question-screen {
+  text-align: center;
+}
+
+
+/* 위쪽 번호 */
+
+#special-question-screen .question-top {
+  text-align: left;
+}
+
+
+/* 특수질문 진행바 */
+
+#special-progress-bar {
+  height: 100%;
+  width: 0%;
+
+  background: #FFD50B;
+
+  transition: width 0.3s ease;
+}
+
+
+/* 축 이름 */
+
+#special-question-screen .axis-badge {
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+
+/* 질문 */
+
+#special-question-text {
+
+  font-size: 23px;
+  line-height: 1.5;
+
+  margin: 0;
+
+  min-height: 105px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* 선택지 */
+
+.special-options {
+
+  display: flex;
+
+  gap: 12px;
+
+  width: 100%;
+
+  margin-top: auto;
+  margin-bottom: 70px;
+}
+
+
+.special-btn {
+
+  flex: 1;
+
+  min-height: 110px;
+
+  border: 3px solid #FF006E;
+
+  background: white;
+
+  color: #222;
+
+  font-family: 'Gothic A1', sans-serif;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+
+.special-btn:hover {
+
+  background: #FFF4B8;
+
+  transform: translateY(-3px);
+}
+
+
+.special-btn:active {
+
+  transform: scale(0.97);
+
+}
+
+
+/* 휴대폰 */
+
+@media (max-width: 480px) {
+
+  #special-question-text {
+
+    font-size: 21px;
+
+    min-height: 100px;
+
+  }
+
+
+  .special-options {
+
+    gap: 10px;
+
+    margin-bottom: 50px;
+
+  }
+
+
+  .special-btn {
+
+    min-height: 100px;
+
+    font-size: 17px;
+
+  }
+
+}
