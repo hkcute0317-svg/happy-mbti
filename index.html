@@ -210,22 +210,30 @@
 
     </section>
 
-<!-- 특수질문 화면 -->
 <section id="special-question-screen" class="screen">
 
+  <!-- 추가 질문 번호 -->
   <div class="question-top">
 
     <span id="special-question-counter">
-      추가 질문 1
-    </span>
-
-    <span id="special-question-axis">
-      A / P
+      추가 질문 1 / 1
     </span>
 
   </div>
 
 
+  <!-- 추가 질문 진행바 -->
+  <div class="progress-bg">
+
+    <div
+      id="special-progress-bar"
+      style="width: 0%;"
+    ></div>
+
+  </div>
+
+
+  <!-- 축 이름 -->
   <div
     id="special-axis-badge"
     class="axis-badge"
@@ -234,11 +242,13 @@
   </div>
 
 
+  <!-- 질문 -->
   <h2 id="special-question-text">
     A랑 P가 같을 때의 특수질문
   </h2>
 
 
+  <!-- 선택지 -->
   <div class="special-options">
 
     <button
