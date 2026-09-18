@@ -743,59 +743,65 @@ function getResultCode(scores) {
 }
 
 
-
-/* =========================
-   특수질문 표시
-========================= */
-
 function renderSpecialQuestion() {
 
-  const q =
-    specialQuestions[
-      currentSpecialQuestionIndex
-    ];
+  const q = specialQuestions[currentSpecialQuestionIndex];
 
+  const total = specialQuestions.length;
+  const current = currentSpecialQuestionIndex + 1;
 
+  // 질문 번호
   document.getElementById(
     "special-question-counter"
   ).innerText =
-    `추가 질문 ${
-      currentSpecialQuestionIndex + 1
-    } / ${specialQuestions.length}`;
+    `추가 질문 ${current} / ${total}`;
 
+
+  // 진행바
+  const progress =
+    ((current - 1) / total) * 100;
 
   document.getElementById(
-    "special-question-axis"
-  ).innerText =
-    q.axis;
+    "special-progress-bar"
+  ).style.width =
+    `${progress}%`;
 
 
+  // 축 이름
   document.getElementById(
     "special-axis-badge"
   ).innerText =
-    q.badge;
+    q.axis === "AP"
+      ? "행복의 성격 (A / P)"
+      : q.axis === "MD"
+      ? "행복의 지속 (M / D)"
+      : q.axis === "TL"
+      ? "행복의 관계 (T / L)"
+      : "행복의 환경 (R / V)";
 
 
+  // 질문
   document.getElementById(
     "special-question-text"
   ).innerText =
     q.question;
 
 
+  // 선택지
   document.getElementById(
     "special-option-1"
   ).innerText =
-    q.option1;
-
+    q.options[0].text;
 
   document.getElementById(
     "special-option-2"
   ).innerText =
-    q.option2;
+    q.options[1].text;
 
+
+  // 장식 이미지 회전
+  rotateDecoration();
 }
-
-
 
 /* =========================
    특수질문 답변
