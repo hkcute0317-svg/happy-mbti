@@ -151,6 +151,17 @@ let currentQuestionIndex = 0;
 let userAnswers = [];
 
 
+/* 특수질문 관련 */
+
+let specialQuestions = [];
+
+let currentSpecialQuestionIndex = 0;
+
+let specialAnswers = {};
+
+let finalScores = {};
+
+
 
 /* =========================
    이미지 회전
@@ -230,13 +241,19 @@ function startTest() {
 
   userAnswers = [];
 
+  specialQuestions = [];
+
+  currentSpecialQuestionIndex = 0;
+
+  specialAnswers = {};
+
+  finalScores = {};
+
   resetTurnImage();
 
   goToScreen("question-screen");
 
   renderQuestion();
-
-  /* 시작 화면 → 1번 문항 */
 
   rotateTurnImage(90);
 
@@ -420,23 +437,7 @@ function getOppositeType(type) {
    7단계 척도 선택
 ========================= */
 
-/*
-   0 = 매우 그렇다      +3
-   1 = 그렇다           +2
-   2 = 약간 그렇다      +1
-   3 = 중립              0
-   4 = 약간 그렇지 않다 -1
-   5 = 그렇지 않다      -2
-   6 = 매우 그렇지 않다 -3
-*/
-
 function selectScale(index) {
-
-  const q =
-    QUESTIONS[currentQuestionIndex];
-
-
-  /* 선택 표시 */
 
   const buttons =
     document.querySelectorAll(".scale-btn");
@@ -477,8 +478,6 @@ function selectScale(index) {
 
       renderQuestion();
 
-      /* 다음 문항 → 90도 회전 */
-
       rotateTurnImage(90);
 
     } else {
@@ -504,8 +503,6 @@ function prevQuestion() {
     currentQuestionIndex--;
 
     renderQuestion();
-
-    /* 이전 문항 → 반대 방향 90도 */
 
     rotateTurnImage(-90);
 
@@ -544,14 +541,6 @@ function calculateResult() {
 
 
 
-    /*
-      모든 답을 다시 계산한다.
-
-      이렇게 하면
-      이전 질문으로 돌아가 답을 바꿔도
-      점수가 중복해서 쌓이지 않는다.
-    */
-
     userAnswers.forEach((answerIndex, questionIndex) => {
 
       const q =
@@ -578,13 +567,6 @@ function calculateResult() {
         weights[answerIndex];
 
 
-      /*
-        질문이 A 방향이면
-
-        + 점수 → A
-        - 점수 → P
-      */
-
       if (weight > 0) {
 
         scores[q.direction] += weight;
@@ -601,48 +583,321 @@ function calculateResult() {
 
 
 
+    /* 점수 저장 */
+
+    finalScores = scores;
+
+
     /* =====================
-       각 축 결과
+       동점 축 찾기
     ===================== */
 
-    const codeAxis1 =
-      scores.A >= scores.P
-        ? "A"
-        : "P";
-
-
-    const codeAxis2 =
-      scores.M >= scores.D
-        ? "M"
-        : "D";
-
-
-    const codeAxis3 =
-      scores.T >= scores.L
-        ? "T"
-        : "L";
-
-
-    const codeAxis4 =
-      scores.R >= scores.V
-        ? "R"
-        : "V";
+    specialQuestions = [];
 
 
 
-    /* 최종 유형 코드 */
+    if (scores.A === scores.P) {
+
+      specialQuestions.push({
+        axis: "AP",
+        badge: "행복의 성격 (A / P)",
+        question: "A랑 P가 같을 때의 특수질문",
+        option1: "A 유형",
+        option2: "P 유형",
+        type1: "A",
+        type2: "P"
+      });
+
+    }
+
+
+
+    if (scores.M === scores.D) {
+
+      specialQuestions.push({
+        axis: "MD",
+        badge: "행복의 지속 (M / D)",
+        question: "M이랑 D가 같을 때의 특수질문",
+        option1: "M 유형",
+        option2: "D 유형",
+        type1: "M",
+        type2: "D"
+      });
+
+    }
+
+
+
+    if (scores.T === scores.L) {
+
+      specialQuestions.push({
+        axis: "TL",
+        badge: "행복의 관계 (T / L)",
+        question: "T랑 L이 같을 때의 특수질문",
+        option1: "T 유형",
+        option2: "L 유형",
+        type1: "T",
+        type2: "L"
+      });
+
+    }
+
+
+
+    if (scores.R === scores.V) {
+
+      specialQuestions.push({
+        axis: "RV",
+        badge: "행복의 환경 (R / V)",
+        question: "R이랑 V가 같을 때의 특수질문",
+        option1: "R 유형",
+        option2: "V 유형",
+        type1: "R",
+        type2: "V"
+      });
+
+    }
+
+
+
+    /* =====================
+       동점이 있다면
+       특수질문 시작
+    ===================== */
+
+    if (specialQuestions.length > 0) {
+
+      currentSpecialQuestionIndex = 0;
+
+      setTimeout(() => {
+
+        goToScreen(
+          "special-question-screen"
+        );
+
+        renderSpecialQuestion();
+
+        rotateTurnImage(90);
+
+      }, 300);
+
+      return;
+
+    }
+
+
+
+    /* 동점이 없다면 바로 결과 */
 
     const resultCode =
-      `${codeAxis1}${codeAxis2}${codeAxis3}${codeAxis4}`;
+      getResultCode(scores);
 
+
+    setTimeout(() => {
+
+      showResultScreen(
+        resultCode,
+        scores
+      );
+
+    }, 300);
+
+  }, 1200);
+
+}
+
+
+
+/* =========================
+   결과 코드 만들기
+========================= */
+
+function getResultCode(scores) {
+
+  const codeAxis1 =
+    scores.A > scores.P
+      ? "A"
+      : "P";
+
+
+  const codeAxis2 =
+    scores.M > scores.D
+      ? "M"
+      : "D";
+
+
+  const codeAxis3 =
+    scores.T > scores.L
+      ? "T"
+      : "L";
+
+
+  const codeAxis4 =
+    scores.R > scores.V
+      ? "R"
+      : "V";
+
+
+  return `${codeAxis1}${codeAxis2}${codeAxis3}${codeAxis4}`;
+
+}
+
+
+
+/* =========================
+   특수질문 표시
+========================= */
+
+function renderSpecialQuestion() {
+
+  const q =
+    specialQuestions[
+      currentSpecialQuestionIndex
+    ];
+
+
+  document.getElementById(
+    "special-question-counter"
+  ).innerText =
+    `추가 질문 ${
+      currentSpecialQuestionIndex + 1
+    } / ${specialQuestions.length}`;
+
+
+  document.getElementById(
+    "special-question-axis"
+  ).innerText =
+    q.axis;
+
+
+  document.getElementById(
+    "special-axis-badge"
+  ).innerText =
+    q.badge;
+
+
+  document.getElementById(
+    "special-question-text"
+  ).innerText =
+    q.question;
+
+
+  document.getElementById(
+    "special-option-1"
+  ).innerText =
+    q.option1;
+
+
+  document.getElementById(
+    "special-option-2"
+  ).innerText =
+    q.option2;
+
+}
+
+
+
+/* =========================
+   특수질문 답변
+========================= */
+
+function selectSpecialAnswer(index) {
+
+  const q =
+    specialQuestions[
+      currentSpecialQuestionIndex
+    ];
+
+
+  if (index === 0) {
+
+    specialAnswers[q.axis] =
+      q.type1;
+
+  } else {
+
+    specialAnswers[q.axis] =
+      q.type2;
+
+  }
+
+
+
+  /* 다음 특수질문 */
+
+  if (
+    currentSpecialQuestionIndex + 1 <
+    specialQuestions.length
+  ) {
+
+    currentSpecialQuestionIndex++;
+
+    renderSpecialQuestion();
+
+    rotateTurnImage(90);
+
+  } else {
+
+    /* 모든 특수질문 완료 */
+
+    const finalCode =
+      buildFinalCode();
 
 
     showResultScreen(
-      resultCode,
-      scores
+      finalCode,
+      finalScores
     );
 
-  }, 1200);
+  }
+
+}
+
+
+
+/* =========================
+   최종 코드 만들기
+========================= */
+
+function buildFinalCode() {
+
+  const axis1 =
+    specialAnswers.AP ||
+    (
+      finalScores.A > finalScores.P
+        ? "A"
+        : "P"
+    );
+
+
+  const axis2 =
+    specialAnswers.MD ||
+    (
+      finalScores.M > finalScores.D
+        ? "M"
+        : "D"
+    );
+
+
+  const axis3 =
+    specialAnswers.TL ||
+    (
+      finalScores.T > finalScores.L
+        ? "T"
+        : "L"
+    );
+
+
+  const axis4 =
+    specialAnswers.RV ||
+    (
+      finalScores.R > finalScores.V
+        ? "R"
+        : "V"
+    );
+
+
+  return `${axis1}${axis2}${axis3}${axis4}`;
 
 }
 
@@ -735,14 +990,14 @@ function showResultScreen(
     })`;
 
 
-document.getElementById(
-  "axis4-label"
-).innerText =
-  `${code[3]} (${
-    code[3] === "R"
-      ? "안정"
-      : "변화"
-  })`;
+  document.getElementById(
+    "axis4-label"
+  ).innerText =
+    `${code[3]} (${
+      code[3] === "R"
+        ? "안정"
+        : "변화"
+    })`;
 
 
   goToScreen(
