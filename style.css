@@ -912,3 +912,7 @@ p {
 .special-options {
   transform: translateY(-200px);
 }
+
+#axis-badge {
+  display: none;
+}
