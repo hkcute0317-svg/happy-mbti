@@ -54,7 +54,7 @@ body {
 
 .screen {
   display: none;
-  min-height: 576px;
+  min-height: 450px;
 }
 
 .screen.active {
