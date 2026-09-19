@@ -219,7 +219,7 @@ const QUESTION_ORDER = [
   2, 7, 6, 21, 11, 14, 16, 24
 ];
 
-const SHUFFLED_QUESTIONS = QUESTION_ORDER.map(
+QUESTIONS = QUESTION_ORDER.map(
   id => QUESTIONS.find(q => q.id === id)
 );
 
