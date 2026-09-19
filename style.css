@@ -921,3 +921,6 @@ p {
 #special-axis-badge {
   display: none;
 }
+.special-options {
+  transform: translateY(70px);
+}
