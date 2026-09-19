@@ -9,7 +9,7 @@ const QUESTIONS = [
     axis: "AP",
     direction: "A",
     badge: "행복의 성격 (A / P)",
-    question: "어떤 일을 끝냈을 때, 결과뿐만 아니라 그 과정에서 내가 성장했다는 사실이 기쁘다"
+    question: "어떤 일을 끝냈을 때, 결과뿐만 아니라 그 과정에서 내가 성장했다는 사실이 기쁘다."
   },
 
   {
@@ -17,7 +17,7 @@ const QUESTIONS = [
     axis: "AP",
     direction: "A",
     badge: "행복의 성격 (A / P)",
-    question: "[A 성향 질문 2]"
+    question: "여가 시간에 새로운 것을 배우거나 실력을 키우며 행복을 느낀다."
   },
 
   {
@@ -25,7 +25,7 @@ const QUESTIONS = [
     axis: "AP",
     direction: "A",
     badge: "행복의 성격 (A / P)",
-    question: "[A 성향 질문 3]"
+    question: "어려운 일에 도전해서 처음에는 할 수 없었던 일을 해냈을 때 큰 만족감을 느낀다."
   },
 
   {
@@ -33,7 +33,7 @@ const QUESTIONS = [
     axis: "AP",
     direction: "P",
     badge: "행복의 성격 (A / P)",
-    question: "[P 성향 질문 1]"
+    question: "특별한 목표가 없어도 좋아하는 일을 하며 즐거운 시간을 보내면 만족스럽다."
   },
 
   {
@@ -41,7 +41,7 @@ const QUESTIONS = [
     axis: "AP",
     direction: "P",
     badge: "행복의 성격 (A / P)",
-    question: "[P 성향 질문 2]"
+    question: "여가 시간에는 무언가를 배우기보다 마음이 가는 대로 즐기는 것이 좋다."
   },
 
   {
@@ -49,7 +49,7 @@ const QUESTIONS = [
     axis: "AP",
     direction: "P",
     badge: "행복의 성격 (A / P)",
-    question: "[P 성향 질문 3]"
+    question: "어떤 일을 선택할 때, 그 일이 나에게 주는 재미와 즐거움을 중요하게 생각한다."
   },
 
 
@@ -62,7 +62,7 @@ const QUESTIONS = [
     axis: "MD",
     direction: "M",
     badge: "행복의 지속 (M / D)",
-    question: "[M 성향 질문 1]"
+    question: "평범한 즐거움이 이어지는 것보다 가끔 특별하고 강렬한 행복을 느끼는 것이 더 좋다."
   },
 
   {
@@ -70,7 +70,7 @@ const QUESTIONS = [
     axis: "MD",
     direction: "M",
     badge: "행복의 지속 (M / D)",
-    question: "[M 성향 질문 2]"
+    question: "일상에서 예상하지 못한 순간에 찾아오는 큰 기쁨이 인상 깊게 느껴진다."
   },
 
   {
@@ -78,7 +78,7 @@ const QUESTIONS = [
     axis: "MD",
     direction: "M",
     badge: "행복의 지속 (M / D)",
-    question: "[M 성향 질문 3]"
+    question: "오래 기다려 온 특별한 순간에 행복이 집중되는 경험이 좋다."
   },
 
   {
@@ -86,7 +86,7 @@ const QUESTIONS = [
     axis: "MD",
     direction: "D",
     badge: "행복의 지속 (M / D)",
-    question: "[D 성향 질문 1]"
+    question: "특별한 일은 없어도 편안하고 행복한 기분이 오래 이어지는 것이 좋다."
   },
 
   {
@@ -94,7 +94,7 @@ const QUESTIONS = [
     axis: "MD",
     direction: "D",
     badge: "행복의 지속 (M / D)",
-    question: "[D 성향 질문 2]"
+    question: " 한 번의 큰 기쁨보다 일상에서 꾸준히 행복을 느끼는 것이 중요하다."
   },
 
   {
@@ -102,7 +102,7 @@ const QUESTIONS = [
     axis: "MD",
     direction: "D",
     badge: "행복의 지속 (M / D)",
-    question: "[D 성향 질문 3]"
+    question: "행복한 일이 생겼을 때, 그 순간뿐 아니라 이후에도 좋은 기분이 이어지기를 바란다."
   },
 
 
@@ -115,7 +115,7 @@ const QUESTIONS = [
     axis: "TL",
     direction: "T",
     badge: "행복의 관계 (T / L)",
-    question: "[T 성향 질문 1]"
+    question: "재미있는 일을 발견하면 다른 사람과 함께 경험하고 싶어진다."
   },
 
   {
@@ -123,7 +123,7 @@ const QUESTIONS = [
     axis: "TL",
     direction: "T",
     badge: "행복의 관계 (T / L)",
-    question: "[T 성향 질문 2]"
+    question: "행복한 일이 생겼을 때 누군가에게 이야기하며 기쁨을 나누고 싶다."
   },
 
   {
@@ -131,7 +131,7 @@ const QUESTIONS = [
     axis: "TL",
     direction: "T",
     badge: "행복의 관계 (T / L)",
-    question: "[T 성향 질문 3]"
+    question: "여유로운 시간이 생기면 친구나 가족과 함께 새로운 추억을 만들고 싶다."
   },
 
   {
@@ -139,7 +139,7 @@ const QUESTIONS = [
     axis: "TL",
     direction: "L",
     badge: "행복의 관계 (T / L)",
-    question: "[L 성향 질문 1]"
+    question: " 좋아하는 일을 할 때 다른 사람의 참여 없이 나만의 방식으로 즐기는 것이 편하다."
   },
 
   {
@@ -147,7 +147,7 @@ const QUESTIONS = [
     axis: "TL",
     direction: "L",
     badge: "행복의 관계 (T / L)",
-    question: "[L 성향 질문 2]"
+    question: "기분 좋은 일이 생겼을 때 다른 사람에게 이야기하기보다 혼자 그 순간을 음미하고 싶다."
   },
 
   {
@@ -155,7 +155,7 @@ const QUESTIONS = [
     axis: "TL",
     direction: "L",
     badge: "행복의 관계 (T / L)",
-    question: "[L 성향 질문 3]"
+    question: "여유로운 시간이 생기면 누군가와 약속을 잡기보다 나만의 시간을 보내고 싶다."
   },
 
 
@@ -168,7 +168,8 @@ const QUESTIONS = [
     axis: "RV",
     direction: "R",
     badge: "행복의 환경 (R / V)",
-    question: "[R 성향 질문 1]"
+    question: "어느 정도 예상할 수 있는 일정 속에서 하루를 보내면 마음이 편안하다.
+"
   },
 
   {
@@ -176,7 +177,7 @@ const QUESTIONS = [
     axis: "RV",
     direction: "R",
     badge: "행복의 환경 (R / V)",
-    question: "[R 성향 질문 2]"
+    question: "좋아하는 장소나 활동을 반복해서 즐기는 것에서 안정감을 느낀다."
   },
 
   {
@@ -184,7 +185,7 @@ const QUESTIONS = [
     axis: "RV",
     direction: "R",
     badge: "행복의 환경 (R / V)",
-    question: "[R 성향 질문 3]"
+    question: "새로운 방법을 시도하기보다 익숙한 방식으로 편안하게 즐기는 것을 선호한다."
   },
 
   {
@@ -192,7 +193,7 @@ const QUESTIONS = [
     axis: "RV",
     direction: "V",
     badge: "행복의 환경 (R / V)",
-    question: "[V 성향 질문 1]"
+    question: "평소와 다른 장소나 활동을 경험할 때 새로운 즐거움을 발견한다."
   },
 
   {
@@ -200,7 +201,7 @@ const QUESTIONS = [
     axis: "RV",
     direction: "V",
     badge: "행복의 환경 (R / V)",
-    question: "[V 성향 질문 2]"
+    question: "계획에 없던 새로운 기회가 생기면 시도해 보고 싶은 마음이 든다."
   },
 
   {
@@ -208,7 +209,7 @@ const QUESTIONS = [
     axis: "RV",
     direction: "V",
     badge: "행복의 환경 (R / V)",
-    question: "[V 성향 질문 3]"
+    question: "익숙한 일상에 새로운 변화를 더할 때 기분이 좋아진다."
   }
 
 ];
