@@ -1,735 +1,359 @@
-```css
-@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800;900&family=Press+Start+2P&display=swap');
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-* {
-  box-sizing: border-box;
-  border-radius: 0 !important;
-}
+  <title>HAPTI 검사</title>
 
-body {
-  margin: 0;
-  padding: 24px;
+  <link rel="stylesheet" href="style.css">
 
-  font-family: 'Gothic A1', sans-serif;
-  font-weight: 600;
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  background-image: url("./newbackground.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+    rel="stylesheet"
+  >
+</head>
 
+<body>
 
-/* =========================
-   전체 카드
-========================= */
+  <main class="app-card">
 
-.app-card {
-  width: 85%;
-  max-width: 380px;
-  min-height: 580px;
+    <!-- 시작 화면 -->
+    <section id="start-screen" class="screen active">
+      <div class="start-content">
 
-  margin: 0 auto;
-  padding: 32px 24px;
+        <div class="emoji">HAPTI 검사</div>
 
-  background: rgba(255, 255, 255, 0.6);
+        <h1>당신의 행복유형 찾기</h1>
 
-  overflow: hidden;
-}
+        <p>학생인권부</p>
 
+        <button
+          class="main-btn"
+          onclick="goToScreen('guide-screen')"
+        >
+          검사하러가기
+        </button>
 
-/* =========================
-   화면
-========================= */
+      </div>
+    </section>
 
-.screen {
-  display: none;
-  min-height: 450px;
-}
 
-.screen.active {
-  display: flex;
-  flex-direction: column;
+    <!-- 안내 화면 -->
+    <section id="guide-screen" class="screen">
 
-  animation: fadeIn 0.3s ease;
-}
+      <h2>HAPTI 검사 안내</h2>
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
+      <p class="guide-text">
+        당신의 행복유형 찾기
+      </p>
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+      <div class="axis-list">
 
+        <div class="axis-item">
+          <b>A / P</b>
+          <span>성취 ↔ 쾌락</span>
+        </div>
 
-/* =========================
-   기본 글자
-========================= */
+        <div class="axis-item">
+          <b>M / D</b>
+          <span>순간 ↔ 지속</span>
+        </div>
 
-h1 {
-  margin: 0 0 12px;
+        <div class="axis-item">
+          <b>T / L</b>
+          <span>함께 ↔ 혼자</span>
+        </div>
 
-  font-family: 'Gothic A1', sans-serif;
-  font-size: 32px;
-  font-weight: 800;
+        <div class="axis-item">
+          <b>R / V</b>
+          <span>안정 ↔ 변화</span>
+        </div>
 
-  letter-spacing: -0.5px;
-}
+      </div>
 
-h2 {
-  margin: 20px 0;
+      <button
+        class="main-btn"
+        onclick="startTest()"
+      >
+        테스트 시작
+      </button>
 
-  font-family: 'Gothic A1', sans-serif;
-  font-size: 20px;
-  font-weight: 800;
-  line-height: 1.45;
-}
+      <button
+        class="text-btn"
+        onclick="goToScreen('start-screen')"
+      >
+        ← 처음으로
+      </button>
 
-p {
-  margin-top: 0;
+    </section>
 
-  font-family: 'Gothic A1', sans-serif;
-  font-weight: 500;
-  line-height: 1.7;
-}
 
+    <!-- 질문 화면 -->
+    <section id="question-screen" class="screen">
 
-/* =========================
-   시작 화면
-========================= */
+      <div class="question-top">
 
-#start-screen {
-  justify-content: center;
-  align-items: center;
+        <span id="question-counter">
+          질문 1 / 8
+        </span>
 
-  text-align: center;
-}
+        <span id="progress-percent">
+          13%
+        </span>
 
-.start-content {
-  width: 100%;
-}
+      </div>
 
-.emoji {
-  margin-bottom: 20px;
 
-  font-size: 60px;
-}
+      <div class="progress-bg">
+        <div id="progress-bar"></div>
+      </div>
 
-.start-content h1 {
-  font-size: 32px;
-  font-weight: 700;
 
-  letter-spacing: -0.5px;
-}
+      <div
+        id="axis-badge"
+        class="axis-badge"
+      >
+        행복의 성격 (A / P)
+      </div>
 
-.start-content p {
-  margin-bottom: 40px;
 
-  color: #777;
-  font-size: 16px;
-}
+      <h2 id="question-text">
+        A 성향에 가까운 질문 삽입
+      </h2>
 
 
-/* =========================
-   버튼
-========================= */
+      <!-- 7단계 응답 -->
 
-.main-btn {
-  width: 100%;
+      <div class="scale-area">
 
-  padding: 16px;
+        <div class="scale-labels">
 
-  border: none;
+          <span id="scale-left">
+  그렇다
+</span>
 
-  background: #FFD50B;
-  color: #ffffff;
+<span id="scale-right">
+  그렇지 않다
+</span>
 
-  font-family: 'Gothic A1', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
+        </div>
 
-  cursor: pointer;
 
-  transition: 0.2s;
-}
+        <div class="scale">
 
-.main-btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
+          <!-- 매우 그렇다 -->
+          <button
+            class="scale-btn scale-1"
+            onclick="selectScale(0)"
+            aria-label="매우 그렇다"
+          ></button>
 
-.text-btn {
-  margin: 18px auto 0;
+          <!-- 그렇다 -->
+          <button
+            class="scale-btn scale-2"
+            onclick="selectScale(1)"
+            aria-label="그렇다"
+          ></button>
 
-  border: none;
-  background: none;
+          <!-- 약간 그렇다 -->
+          <button
+            class="scale-btn scale-3"
+            onclick="selectScale(2)"
+            aria-label="약간 그렇다"
+          ></button>
 
-  color: #777;
+          <!-- 중립 -->
+          <button
+            class="scale-btn scale-4"
+            onclick="selectScale(3)"
+            aria-label="중립"
+          ></button>
 
-  font-family: 'Gothic A1', sans-serif;
-  font-size: 15px;
+          <!-- 약간 그렇지 않다 -->
+          <button
+            class="scale-btn scale-3"
+            onclick="selectScale(4)"
+            aria-label="약간 그렇지 않다"
+          ></button>
 
-  cursor: pointer;
-}
+          <!-- 그렇지 않다 -->
+          <button
+            class="scale-btn scale-2"
+            onclick="selectScale(5)"
+            aria-label="그렇지 않다"
+          ></button>
 
+          <!-- 매우 그렇지 않다 -->
+          <button
+            class="scale-btn scale-1"
+            onclick="selectScale(6)"
+            aria-label="매우 그렇지 않다"
+          ></button>
 
-/* =========================
-   안내 화면
-========================= */
+        </div>
 
-.guide-text {
-  margin-bottom: 28px;
+      </div>
 
-  color: #666;
-  font-size: 16px;
 
-  text-align: center;
-}
+      <button
+        id="prev-btn"
+        class="text-btn hidden"
+        onclick="prevQuestion()"
+      >
+        ← 이전 질문
+      </button>
 
-.axis-list {
-  display: flex;
-  flex-direction: column;
+    </section>
 
-  gap: 12px;
+<section id="special-question-screen" class="screen">
 
-  margin-bottom: 35px;
-}
+  <!-- 추가 질문 번호 -->
+  <div class="question-top">
 
-.axis-item {
-  display: flex;
-  align-items: center;
+    <span id="special-question-counter">
+      추가 질문 1 / 1
+    </span>
 
-  padding: 15px;
+  </div>
 
-  background: #FFF9DF;
-}
 
-.axis-item b {
-  width: 70px;
+  <!-- 추가 질문 진행바 -->
+  <div class="progress-bg">
 
-  color: #FF006E;
+    <div
+      id="special-progress-bar"
+      style="width: 0%;"
+    ></div>
 
-  font-size: 15px;
-  font-weight: 700;
-}
+  </div>
 
-.axis-item span {
-  color: #555;
-  font-size: 15px;
-}
 
+  <!-- 축 이름 -->
+  <div
+    id="special-axis-badge"
+    class="axis-badge"
+  >
+    행복의 성격 (A / P)
+  </div>
 
-/* =========================
-   질문 상단
-========================= */
 
-.question-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  <!-- 질문 -->
+  <h2 id="special-question-text">
+    A랑 P가 같을 때의 특수질문
+  </h2>
 
-  margin-bottom: 10px;
 
-  color: #777;
-  font-size: 14px;
-}
+  <!-- 선택지 -->
+  <div class="special-options">
 
+    <button
+      class="special-btn"
+      id="special-option-1"
+      onclick="selectSpecialAnswer(0)"
+    >
+      A 유형
+    </button>
 
-/* =========================
-   진행바
-========================= */
+    <button
+      class="special-btn"
+      id="special-option-2"
+      onclick="selectSpecialAnswer(1)"
+    >
+      P 유형
+    </button>
 
-.progress-bg {
-  width: 100%;
-  height: 8px;
+  </div>
 
-  margin-bottom: 30px;
+</section>
+    <!-- 로딩 화면 -->
+    <section id="loading-screen" class="screen">
 
-  background: #FFF4B8;
+      <div class="loading-content">
 
-  overflow: hidden;
-}
+        <div class="loading-icon">WAIT</div>
 
-#progress-bar,
-#special-progress-bar {
-  height: 100%;
-  width: 0%;
+        <h2>
+          당신의 유형을<br>
+          찾는 중...
+        </h2>
 
-  background: #FFD50B;
+        <p>잠시만 기다려주세요!</p>
 
-  transition: width 0.3s ease;
-}
+      </div>
 
+    </section>
 
-/* =========================
-   축 배지
-========================= */
 
-.axis-badge {
-  display: inline-block;
-  width: fit-content;
+    <!-- 결과 화면 -->
+    <section id="result-screen" class="screen">
 
-  margin-bottom: 20px;
-  padding: 7px 12px;
+      <div
+        class="result-code"
+        id="result-type-code"
+      >
+        AMTR
+      </div>
 
-  background: #FFF4B8;
-  color: #FF006E;
+      <h2 id="result-type-title">
+        「HAPTI 유형」
+      </h2>
 
-  font-size: 14px;
-  font-weight: 700;
-}
+      <div class="result-box">
 
+        <h3>나의 행복 특징</h3>
 
-/* =========================
-   질문
-========================= */
+        <p id="trait-desc"></p>
 
-#question-text {
-  margin-bottom: 35px;
+      </div>
 
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.5;
-}
+      <div class="result-box">
 
+        <h3>나에게 잘 맞는 활동</h3>
 
-/* =========================
-   7단계 선택 영역
-========================= */
+        <p id="activity-desc"></p>
 
-.scale-area {
-  width: 100%;
+      </div>
 
-  margin-top: auto;
+      <div class="axis-result">
 
-  /*
-    기존 위치 조정 유지.
-    필요하면 이 값만 조절하면 됨.
-  */
-  transform: translateY(-170px);
-}
+        <div>
+          <span id="axis1-label"></span>
+        </div>
 
-.scale-labels {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+        <div>
+          <span id="axis2-label"></span>
+        </div>
 
-  margin-bottom: 15px;
+        <div>
+          <span id="axis3-label"></span>
+        </div>
 
-  font-size: 16px;
-  font-weight: 600;
-}
+        <div>
+          <span id="axis4-label"></span>
+        </div>
 
-#scale-left,
-#scale-right {
-  color: #FF006E;
-}
+      </div>
 
-.scale {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+      <button
+        class="main-btn"
+        onclick="restartTest()"
+      >
+        다시 테스트하기
+      </button>
 
-  width: 100%;
-  padding: 0 2px;
-}
+    </section>
 
+  </main>
 
-/* =========================
-   7단계 버튼
-========================= */
 
-.scale-btn {
-  flex-shrink: 0;
+  <!-- JavaScript 연결 -->
+  <script src="./script.js"></script>
 
-  padding: 0;
+  <img src="turn-image.png" class="turn-image">
 
-  background: white;
-
-  border: 3px solid #FF006E;
-  border-radius: 50% !important;
-
-  cursor: pointer;
-
-  transition:
-    transform 0.15s ease,
-    background 0.15s ease;
-}
-
-
-/* 가장 큰 버튼 */
-
-.scale-1 {
-  width: 58px;
-  height: 58px;
-}
-
-
-/* 중간 버튼 */
-
-.scale-2 {
-  width: 47px;
-  height: 47px;
-}
-
-
-/* 작은 버튼 */
-
-.scale-3 {
-  width: 36px;
-  height: 36px;
-}
-
-
-/* 가운데 버튼 */
-
-.scale-4 {
-  width: 26px;
-  height: 26px;
-
-  border-color: #999;
-}
-
-
-/* 마우스 오버 */
-
-.scale-btn:hover {
-  transform: scale(1.12);
-
-  background: #FFF4B8;
-}
-
-
-/* 선택 */
-
-.scale-btn.selected {
-  background: #FFD50B;
-  border-color: #FF006E;
-
-  transform: scale(1.1);
-}
-
-
-/* =========================
-   이전 질문
-========================= */
-
-.hidden {
-  display: none !important;
-}
-
-
-/* =========================
-   특수 질문
-========================= */
-
-#special-question-screen {
-  text-align: center;
-}
-
-#special-question-screen .question-top {
-  text-align: left;
-}
-
-#special-question-screen .axis-badge {
-  margin-top: 10px;
-  margin-bottom: 25px;
-}
-
-#special-question-text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  min-height: 105px;
-  margin: 0;
-
-  font-size: 23px;
-  font-weight: 700;
-  line-height: 1.5;
-
-  text-align: center;
-}
-
-
-/* 특수 질문 선택지 */
-
-.special-options {
-  display: flex;
-
-  width: 100%;
-
-  gap: 12px;
-
-  margin-top: auto;
-
-  /*
-    기존 최종 위치인 70px을 유지.
-  */
-  transform: translateY(70px);
-}
-
-.special-btn {
-  flex: 1;
-
-  min-height: 110px;
-
-  border: 3px solid #FF006E;
-
-  background: white;
-  color: #222;
-
-  font-family: 'Gothic A1', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition:
-    transform 0.15s ease,
-    background 0.15s ease;
-}
-
-.special-btn:hover {
-  background: #FFF4B8;
-
-  transform: translateY(-3px);
-}
-
-.special-btn:active {
-  transform: scale(0.97);
-}
-
-
-/* =========================
-   로딩
-========================= */
-
-#loading-screen {
-  justify-content: center;
-  align-items: center;
-
-  text-align: center;
-}
-
-.loading-icon {
-  font-size: 55px;
-
-  animation: spin 1.2s infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  50% {
-    transform: scale(1.2);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-
-/* =========================
-   결과
-========================= */
-
-#result-screen {
-  text-align: center;
-}
-
-
-/* 결과 코드 */
-
-.result-code {
-  margin-top: 15px;
-
-  color: #FF006E;
-
-  font-family: 'Press Start 2P', monospace;
-  font-size: 30px;
-  font-weight: 400;
-
-  line-height: 1.5;
-}
-
-
-/* 결과 유형 이름 */
-
-#result-type-title {
-  margin: 10px 0 28px;
-
-  font-family: 'Gothic A1', sans-serif;
-  font-size: 25px;
-  font-weight: 700;
-}
-
-
-/* =========================
-   결과 설명
-========================= */
-
-.result-box {
-  margin-bottom: 12px;
-  padding: 18px;
-
-  background: #FFF9DF;
-
-  text-align: left;
-}
-
-.result-box h3 {
-  margin: 0 0 8px;
-
-  color: #FF006E;
-
-  font-family: 'Gothic A1', sans-serif;
-  font-size: 17px;
-  font-weight: 700;
-}
-
-.result-box p {
-  margin: 0;
-
-  color: #555;
-
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-
-/* =========================
-   축 결과
-========================= */
-
-.axis-result {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 8px;
-
-  margin: 18px 0 25px;
-}
-
-.axis-result div {
-  padding: 10px;
-
-  background: #FFF9DF;
-
-  color: #555;
-
-  font-size: 14px;
-}
-
-
-/* =========================
-   장식 이미지
-========================= */
-
-.turn-image {
-  position: fixed;
-
-  right: -100px;
-  bottom: -100px;
-
-  width: 310px;
-  height: auto;
-
-  z-index: 1000;
-
-  transform: rotate(0deg);
-
-  transition: transform 0.6s ease-in-out;
-}
-
-
-/* =========================
-   모바일
-========================= */
-
-@media (max-width: 480px) {
-
-  body {
-    padding: 20px 12px;
-  }
-
-  .app-card {
-    width: 85%;
-    max-width: 380px;
-
-    min-height: auto;
-
-    padding: 28px 20px;
-  }
-
-  .start-content h1 {
-    font-size: 30px;
-  }
-
-  #question-text {
-    font-size: 22px;
-  }
-
-  .result-code {
-    font-size: 27px;
-  }
-
-
-  /* 7단계 척도 */
-
-  .scale {
-    padding: 0;
-  }
-
-  .scale-1 {
-    width: 48px;
-    height: 48px;
-  }
-
-  .scale-2 {
-    width: 40px;
-    height: 40px;
-  }
-
-  .scale-3 {
-    width: 31px;
-    height: 31px;
-  }
-
-  .scale-4 {
-    width: 23px;
-    height: 23px;
-  }
-
-
-  /* 특수 질문 */
-
-  #special-question-text {
-    min-height: 100px;
-
-    font-size: 21px;
-  }
-
-  .special-options {
-    gap: 10px;
-
-    transform: translateY(50px);
-  }
-
-  .special-btn {
-    min-height: 100px;
-
-    font-size: 17px;
-  }
-}
-```
+</body>
+</html>
