@@ -1,4 +1,4 @@
-const QUESTIONS = [
+let QUESTIONS = [
 
   // =========================
   // A / P : 행복의 성격
@@ -212,6 +212,16 @@ const QUESTIONS = [
   }
 
 ];
+// 문항 순서 섞기
+const QUESTION_ORDER = [
+  3, 8, 4, 20, 10, 15, 17, 22,
+  1, 9, 5, 19, 12, 13, 18, 23,
+  2, 7, 6, 21, 11, 14, 16, 24
+];
+
+const SHUFFLED_QUESTIONS = QUESTION_ORDER.map(
+  id => QUESTIONS.find(q => q.id === id)
+);
 
 
 
