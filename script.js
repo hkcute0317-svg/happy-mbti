@@ -451,30 +451,29 @@ function renderQuestion() {
 
 
 
-  const scaleLeft =
-    document.getElementById("scale-left");
+  /* 양쪽 설명 */
 
-  const scaleRight =
-    document.getElementById("scale-right");
+const scaleLeft =
+  document.getElementById("scale-left");
 
-
-  if (scaleLeft) {
-
-    scaleLeft.innerText =
-      q.direction;
-
-  }
+const scaleRight =
+  document.getElementById("scale-right");
 
 
-  if (scaleRight) {
+if (scaleLeft) {
 
-    const opposite =
-      getOppositeType(q.direction);
+  scaleLeft.innerText =
+    "그렇다";
 
-    scaleRight.innerText =
-      opposite;
+}
 
-  }
+
+if (scaleRight) {
+
+  scaleRight.innerText =
+    "그렇지 않다";
+
+}
 
 
 
