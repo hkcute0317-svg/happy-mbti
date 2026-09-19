@@ -916,3 +916,8 @@ p {
 #axis-badge {
   display: none;
 }
+
+#axis-badge,
+#special-axis-badge {
+  display: none;
+}
