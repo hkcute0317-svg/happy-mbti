@@ -168,8 +168,7 @@ const QUESTIONS = [
     axis: "RV",
     direction: "R",
     badge: "행복의 환경 (R / V)",
-    question: "어느 정도 예상할 수 있는 일정 속에서 하루를 보내면 마음이 편안하다.
-"
+    question: "어느 정도 예상할 수 있는 일정 속에서 하루를 보내면 마음이 편안하다."
   },
 
   {
