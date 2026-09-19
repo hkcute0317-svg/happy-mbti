@@ -922,5 +922,5 @@ p {
   display: none;
 }
 .special-options {
-  transform: translateY(70px);
+  transform: translateY(-70px);
 }
