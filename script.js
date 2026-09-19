@@ -1,72 +1,217 @@
 const QUESTIONS = [
-  
+
+  // =========================
+  // A / P : 행복의 성격
+  // =========================
+
   {
     id: 1,
     axis: "AP",
     direction: "A",
     badge: "행복의 성격 (A / P)",
-    question: "[A 성향에 가까운 질문 삽입]"
+    question: "[A 성향 질문 1]"
   },
 
   {
     id: 2,
     axis: "AP",
-    direction: "P",
+    direction: "A",
     badge: "행복의 성격 (A / P)",
-    question: "[P 성향에 가까운 질문 삽입]"
+    question: "[A 성향 질문 2]"
   },
 
   {
     id: 3,
-    axis: "MD",
-    direction: "M",
-    badge: "행복의 지속 (M / D)",
-    question: "[M 성향에 가까운 질문 삽입]"
+    axis: "AP",
+    direction: "A",
+    badge: "행복의 성격 (A / P)",
+    question: "[A 성향 질문 3]"
   },
 
   {
     id: 4,
-    axis: "MD",
-    direction: "D",
-    badge: "행복의 지속 (M / D)",
-    question: "[D 성향에 가까운 질문 삽입]"
+    axis: "AP",
+    direction: "P",
+    badge: "행복의 성격 (A / P)",
+    question: "[P 성향 질문 1]"
   },
 
   {
     id: 5,
-    axis: "TL",
-    direction: "T",
-    badge: "행복의 관계 (T / L)",
-    question: "[T 성향에 가까운 질문 삽입]"
+    axis: "AP",
+    direction: "P",
+    badge: "행복의 성격 (A / P)",
+    question: "[P 성향 질문 2]"
   },
 
   {
     id: 6,
-    axis: "TL",
-    direction: "L",
-    badge: "행복의 관계 (T / L)",
-    question: "[L 성향에 가까운 질문 삽입]"
+    axis: "AP",
+    direction: "P",
+    badge: "행복의 성격 (A / P)",
+    question: "[P 성향 질문 3]"
   },
+
+
+  // =========================
+  // M / D : 행복의 지속
+  // =========================
 
   {
     id: 7,
-    axis: "RV",
-    direction: "R",
-    badge: "행복의 환경 (R / V)",
-    question: "[R 성향에 가까운 질문 삽입]"
+    axis: "MD",
+    direction: "M",
+    badge: "행복의 지속 (M / D)",
+    question: "[M 성향 질문 1]"
   },
 
   {
     id: 8,
+    axis: "MD",
+    direction: "M",
+    badge: "행복의 지속 (M / D)",
+    question: "[M 성향 질문 2]"
+  },
+
+  {
+    id: 9,
+    axis: "MD",
+    direction: "M",
+    badge: "행복의 지속 (M / D)",
+    question: "[M 성향 질문 3]"
+  },
+
+  {
+    id: 10,
+    axis: "MD",
+    direction: "D",
+    badge: "행복의 지속 (M / D)",
+    question: "[D 성향 질문 1]"
+  },
+
+  {
+    id: 11,
+    axis: "MD",
+    direction: "D",
+    badge: "행복의 지속 (M / D)",
+    question: "[D 성향 질문 2]"
+  },
+
+  {
+    id: 12,
+    axis: "MD",
+    direction: "D",
+    badge: "행복의 지속 (M / D)",
+    question: "[D 성향 질문 3]"
+  },
+
+
+  // =========================
+  // T / L : 행복의 관계
+  // =========================
+
+  {
+    id: 13,
+    axis: "TL",
+    direction: "T",
+    badge: "행복의 관계 (T / L)",
+    question: "[T 성향 질문 1]"
+  },
+
+  {
+    id: 14,
+    axis: "TL",
+    direction: "T",
+    badge: "행복의 관계 (T / L)",
+    question: "[T 성향 질문 2]"
+  },
+
+  {
+    id: 15,
+    axis: "TL",
+    direction: "T",
+    badge: "행복의 관계 (T / L)",
+    question: "[T 성향 질문 3]"
+  },
+
+  {
+    id: 16,
+    axis: "TL",
+    direction: "L",
+    badge: "행복의 관계 (T / L)",
+    question: "[L 성향 질문 1]"
+  },
+
+  {
+    id: 17,
+    axis: "TL",
+    direction: "L",
+    badge: "행복의 관계 (T / L)",
+    question: "[L 성향 질문 2]"
+  },
+
+  {
+    id: 18,
+    axis: "TL",
+    direction: "L",
+    badge: "행복의 관계 (T / L)",
+    question: "[L 성향 질문 3]"
+  },
+
+
+  // =========================
+  // R / V : 행복의 환경
+  // =========================
+
+  {
+    id: 19,
+    axis: "RV",
+    direction: "R",
+    badge: "행복의 환경 (R / V)",
+    question: "[R 성향 질문 1]"
+  },
+
+  {
+    id: 20,
+    axis: "RV",
+    direction: "R",
+    badge: "행복의 환경 (R / V)",
+    question: "[R 성향 질문 2]"
+  },
+
+  {
+    id: 21,
+    axis: "RV",
+    direction: "R",
+    badge: "행복의 환경 (R / V)",
+    question: "[R 성향 질문 3]"
+  },
+
+  {
+    id: 22,
     axis: "RV",
     direction: "V",
     badge: "행복의 환경 (R / V)",
-    question: "[V 성향에 가까운 질문 삽입]"
+    question: "[V 성향 질문 1]"
+  },
+
+  {
+    id: 23,
+    axis: "RV",
+    direction: "V",
+    badge: "행복의 환경 (R / V)",
+    question: "[V 성향 질문 2]"
+  },
+
+  {
+    id: 24,
+    axis: "RV",
+    direction: "V",
+    badge: "행복의 환경 (R / V)",
+    question: "[V 성향 질문 3]"
   }
 
 ];
-
-
 
 /* =========================
    결과 데이터
