@@ -9,7 +9,7 @@ const QUESTIONS = [
     axis: "AP",
     direction: "A",
     badge: "행복의 성격 (A / P)",
-    question: "[A 성향 질문 1]"
+    question: "어떤 일을 끝냈을 때, 결과뿐만 아니라 그 과정에서 내가 성장했다는 사실이 기쁘다"
   },
 
   {
