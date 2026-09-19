@@ -213,6 +213,8 @@ const QUESTIONS = [
 
 ];
 
+
+
 /* =========================
    결과 데이터
 ========================= */
@@ -295,9 +297,6 @@ let currentQuestionIndex = 0;
 
 let userAnswers = [];
 
-
-/* 특수질문 관련 */
-
 let specialQuestions = [];
 
 let currentSpecialQuestionIndex = 0;
@@ -332,8 +331,6 @@ function rotateTurnImage(degree) {
 }
 
 
-
-/* 회전 초기화 */
 
 function resetTurnImage() {
 
@@ -416,16 +413,11 @@ function renderQuestion() {
     QUESTIONS[currentQuestionIndex];
 
 
-  /* 질문 번호 */
-
   document.getElementById(
     "question-counter"
   ).innerText =
     `질문 ${currentQuestionIndex + 1} / ${QUESTIONS.length}`;
 
-
-
-  /* 진행률 */
 
   const percent =
     Math.round(
@@ -446,17 +438,11 @@ function renderQuestion() {
     `${percent}%`;
 
 
-
-  /* 축 이름 */
-
   document.getElementById(
     "axis-badge"
   ).innerText =
     q.badge;
 
-
-
-  /* 질문 */
 
   document.getElementById(
     "question-text"
@@ -464,8 +450,6 @@ function renderQuestion() {
     q.question;
 
 
-
-  /* 양쪽 설명 */
 
   const scaleLeft =
     document.getElementById("scale-left");
@@ -494,8 +478,6 @@ function renderQuestion() {
 
 
 
-  /* 이전 질문 버튼 */
-
   const prevBtn =
     document.getElementById("prev-btn");
 
@@ -512,8 +494,6 @@ function renderQuestion() {
 
 
 
-  /* 기존 선택 초기화 */
-
   document
     .querySelectorAll(".scale-btn")
     .forEach(button => {
@@ -523,8 +503,6 @@ function renderQuestion() {
     });
 
 
-
-  /* 이전에 선택한 답이 있다면 표시 */
 
   if (
     userAnswers[currentQuestionIndex] !== undefined
@@ -550,7 +528,7 @@ function renderQuestion() {
 
 
 /* =========================
-   반대 성향 가져오기
+   반대 성향
 ========================= */
 
 function getOppositeType(type) {
@@ -603,14 +581,10 @@ function selectScale(index) {
 
 
 
-  /* 답 저장 */
-
   userAnswers[currentQuestionIndex] =
     index;
 
 
-
-  /* 다음 질문 */
 
   setTimeout(() => {
 
@@ -693,11 +667,14 @@ function calculateResult() {
 
 
       if (answerIndex === undefined) {
+
         return;
+
       }
 
 
       const weights = [
+
         3,
         2,
         1,
@@ -705,6 +682,7 @@ function calculateResult() {
         -1,
         -2,
         -3
+
       ];
 
 
@@ -728,8 +706,6 @@ function calculateResult() {
 
 
 
-    /* 점수 저장 */
-
     finalScores = scores;
 
 
@@ -744,13 +720,21 @@ function calculateResult() {
     if (scores.A === scores.P) {
 
       specialQuestions.push({
+
         axis: "AP",
+
         badge: "행복의 성격 (A / P)",
+
         question: "A랑 P가 같을 때의 특수질문",
+
         option1: "A 유형",
+
         option2: "P 유형",
+
         type1: "A",
+
         type2: "P"
+
       });
 
     }
@@ -760,13 +744,21 @@ function calculateResult() {
     if (scores.M === scores.D) {
 
       specialQuestions.push({
+
         axis: "MD",
+
         badge: "행복의 지속 (M / D)",
+
         question: "M이랑 D가 같을 때의 특수질문",
+
         option1: "M 유형",
+
         option2: "D 유형",
+
         type1: "M",
+
         type2: "D"
+
       });
 
     }
@@ -776,13 +768,21 @@ function calculateResult() {
     if (scores.T === scores.L) {
 
       specialQuestions.push({
+
         axis: "TL",
+
         badge: "행복의 관계 (T / L)",
+
         question: "T랑 L이 같을 때의 특수질문",
+
         option1: "T 유형",
+
         option2: "L 유형",
+
         type1: "T",
+
         type2: "L"
+
       });
 
     }
@@ -792,13 +792,21 @@ function calculateResult() {
     if (scores.R === scores.V) {
 
       specialQuestions.push({
+
         axis: "RV",
+
         badge: "행복의 환경 (R / V)",
+
         question: "R이랑 V가 같을 때의 특수질문",
+
         option1: "R 유형",
+
         option2: "V 유형",
+
         type1: "R",
+
         type2: "V"
+
       });
 
     }
@@ -806,7 +814,6 @@ function calculateResult() {
 
 
     /* =====================
-       동점이 있다면
        특수질문 시작
     ===================== */
 
@@ -822,8 +829,6 @@ function calculateResult() {
 
         renderSpecialQuestion();
 
-        rotateTurnImage(90);
-
       }, 300);
 
       return;
@@ -832,7 +837,7 @@ function calculateResult() {
 
 
 
-    /* 동점이 없다면 바로 결과 */
+    /* 동점이 없으면 바로 결과 */
 
     const resultCode =
       getResultCode(scores);
@@ -888,65 +893,90 @@ function getResultCode(scores) {
 }
 
 
+
+/* =========================
+   특수질문 표시
+========================= */
+
 function renderSpecialQuestion() {
 
-  const q = specialQuestions[currentSpecialQuestionIndex];
+  const q =
+    specialQuestions[currentSpecialQuestionIndex];
 
-  const total = specialQuestions.length;
-  const current = currentSpecialQuestionIndex + 1;
 
-  // 질문 번호
+  const total =
+    specialQuestions.length;
+
+
+  const current =
+    currentSpecialQuestionIndex + 1;
+
+
+
+  /* 질문 번호 */
+
   document.getElementById(
     "special-question-counter"
   ).innerText =
     `추가 질문 ${current} / ${total}`;
 
 
-  // 진행바
+
+  /* 진행바 */
+
   const progress =
-    ((current - 1) / total) * 100;
-
-  document.getElementById(
-    "special-progress-bar"
-  ).style.width =
-    `${progress}%`;
+    (current / total) * 100;
 
 
-  // 축 이름
+  const progressBar =
+    document.getElementById(
+      "special-progress-bar"
+    );
+
+
+  if (progressBar) {
+
+    progressBar.style.width =
+      `${progress}%`;
+
+  }
+
+
+
+  /* 축 이름 */
+
   document.getElementById(
     "special-axis-badge"
   ).innerText =
-    q.axis === "AP"
-      ? "행복의 성격 (A / P)"
-      : q.axis === "MD"
-      ? "행복의 지속 (M / D)"
-      : q.axis === "TL"
-      ? "행복의 관계 (T / L)"
-      : "행복의 환경 (R / V)";
+    q.badge;
 
 
-  // 질문
+
+  /* 질문 */
+
   document.getElementById(
     "special-question-text"
   ).innerText =
     q.question;
 
 
-  // 선택지
+
+  /* 선택지 */
+
   document.getElementById(
     "special-option-1"
   ).innerText =
-    q.options[0].text;
+    q.option1;
+
 
   document.getElementById(
     "special-option-2"
   ).innerText =
-    q.options[1].text;
+    q.option2;
 
-
-  // 장식 이미지 회전
-  rotateDecoration();
 }
+
+
 
 /* =========================
    특수질문 답변
@@ -958,6 +988,7 @@ function selectSpecialAnswer(index) {
     specialQuestions[
       currentSpecialQuestionIndex
     ];
+
 
 
   if (index === 0) {
