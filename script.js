@@ -1097,7 +1097,8 @@ function buildFinalCode() {
 /* =========================
    결과 표시
 ========================= */
-
+const resultImage = document.getElementById("result-image");
+resultImage.src = `${resultCode}.png`;
 function showResultScreen(
   code,
   scores
