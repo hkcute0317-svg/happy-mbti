@@ -1097,12 +1097,25 @@ function buildFinalCode() {
 /* =========================
    결과 표시
 ========================= */
-const resultImage = document.getElementById("result-image");
-resultImage.src = `${resultCode}.png`;
+
+
 function showResultScreen(
   code,
   scores
 ) {
+
+  const resultImage =
+    document.getElementById("result-image");
+
+  if (resultImage) {
+
+    resultImage.src =
+      `${code}.png`;
+
+    resultImage.alt =
+      `${code} 행복 유형 이미지`;
+
+  }
 
   document.getElementById(
     "result-type-code"
