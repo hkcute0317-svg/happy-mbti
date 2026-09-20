@@ -924,3 +924,15 @@ p {
 .special-options {
   transform: translateY(-70px);
 }
+.result-image-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.result-image-box img {
+  width: 280px;
+  height: auto;
+  display: block;
+}
