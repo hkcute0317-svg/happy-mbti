@@ -734,11 +734,11 @@ function calculateResult() {
 
         badge: "행복의 성격 (A / P)",
 
-        question: "A랑 P가 같을 때의 특수질문",
+        question: "학교에서 열리는 대회에 참가하게 되었다. 대회 전날까지 준비할 시간이 조금 남았다면 나는?",
 
-        option1: "A 유형",
+        option1: "부족한 부분을 더 연습해서 결과를 더 좋게 만들고 싶다",
 
-        option2: "P 유형",
+        option2: "지금까지 충분히 준비했으니 남은 시간은 편하게 쉬고 싶다",
 
         type1: "A",
 
@@ -758,11 +758,11 @@ function calculateResult() {
 
         badge: "행복의 지속 (M / D)",
 
-        question: "M이랑 D가 같을 때의 특수질문",
+        question: "방학 중 하루를 특별하게 보낼 수 있다면?",
 
-        option1: "M 유형",
+        option1: "하루에 모든 재미를 몰아서 강렬하게 즐기고 싶다",
 
-        option2: "D 유형",
+        option2: "매일 조금씩 즐거운 일이 생기는 방학을 보내고 싶다",
 
         type1: "M",
 
@@ -782,11 +782,11 @@ function calculateResult() {
 
         badge: "행복의 관계 (T / L)",
 
-        question: "T랑 L이 같을 때의 특수질문",
+        question: "주말 오후에 잠시 아무것도 하지 않아도 되는 시간이 생겼다",
 
-        option1: "T 유형",
+        option1: "가까운 사람에게 연락해서 같이 이야기하거나 시간을 보내고 싶다",
 
-        option2: "L 유형",
+        option2: "연락을 하기보다 혼자 좋아하는 것을 하면서 쉬고 싶다",
 
         type1: "T",
 
@@ -806,11 +806,11 @@ function calculateResult() {
 
         badge: "행복의 환경 (R / V)",
 
-        question: "R이랑 V가 같을 때의 특수질문",
+        question: "자주 가던 식당에 갔는데 오늘은 다른 메뉴도 눈에 들어온다",
 
-        option1: "R 유형",
+        option1: "평소에 먹던 익숙한 메뉴를 고른다",
 
-        option2: "V 유형",
+        option2: "오늘은 새로운 메뉴를 골라본다",
 
         type1: "R",
 
