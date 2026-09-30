@@ -1,73 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800;900&family=Jua&family=Press+Start+2P&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800;900&family=Press+Start+2P&display=swap');
+/* =========================================================
+   HAPTI — HAPPY POSTER DESIGN
+   기능 / 내용은 기존 HTML + JS 그대로 사용
+========================================================= */
 
-body {
-  margin: 0;
-  font-family: 'Gothic A1', sans-serif;
-  font-weight: 1000;
-
-  /* 나머지는 그대로 */
+:root {
+  --pink: #FF006E;
+  --pink-dark: #E50063;
+  --yellow: #FFE500;
+  --yellow-soft: #FFF4A8;
+  --black: #111111;
+  --white: #FFFFFF;
+  --gray: #666666;
+  --light-gray: #EEEEEE;
 }
+
+
+/* =========================================================
+   기본
+========================================================= */
+
 * {
   box-sizing: border-box;
 }
 
+html {
+  min-height: 100%;
+}
+
 body {
   margin: 0;
-  font-family: 'Gothic A1', sans-serif;
+  min-height: 100vh;
 
-  background-image: url("./newbackground.png");
+  font-family: 'Gothic A1', sans-serif;
+  font-weight: 500;
+  color: var(--black);
+
+  background-color: var(--pink);
+  background-image:
+    linear-gradient(
+      rgba(255, 0, 110, 0.18),
+      rgba(255, 0, 110, 0.18)
+    ),
+    url("./newbackground.png");
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  padding: 24px;
+  padding: 24px 14px 40px;
+
+  overflow-x: hidden;
 }
 
 
-/* =========================
+/* =========================================================
    전체 카드
-========================= */
+========================================================= */
 
 .app-card {
-  width: 85%;
-  max-width: 380px;
-  min-height: 580px;
+  position: relative;
 
-  background: rgba(255, 255, 255, 0.6);
+  width: min(100%, 430px);
+  min-height: 650px;
 
-  border-radius: 0;
+  margin: 0 auto;
+
   padding: 32px 24px;
 
+  background: rgba(255, 255, 255, 0.93);
+
+  border: 3px solid var(--black);
+  border-radius: 0;
+
   box-shadow:
-    0 0px 0px rgba(0, 0, 0, 0);
+    8px 8px 0 var(--black);
 
   overflow: hidden;
-  margin: 0 auto;
 }
 
 
-/* =========================
+/* =========================================================
    화면
-========================= */
+========================================================= */
 
 .screen {
   display: none;
-  min-height: 576px;
+
+  width: 100%;
+  min-height: 580px;
 }
 
 .screen.active {
   display: flex;
   flex-direction: column;
-  animation: fadeIn 0.3s ease;
-}
 
+  animation: fadeIn 0.25s ease-out;
+}
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(8px);
   }
 
   to {
@@ -77,38 +113,51 @@ body {
 }
 
 
-/* =========================
-   기본 글자
-========================= */
+/* =========================================================
+   기본 타이포그래피
+========================================================= */
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
 
 h1 {
   font-family: 'Gothic A1', sans-serif;
-  font-size: 32px;
-  margin: 0 0 12px;
-  font-weight: 1000;
-  letter-spacing: -0.3px;
+
+  font-size: 2.25rem;
+  line-height: 1.15;
+
+  font-weight: 700;
+  letter-spacing: -1.8px;
+
+  margin-bottom: 14px;
 }
 
 h2 {
   font-family: 'Gothic A1', sans-serif;
 
-  font-size: 20px;
-  line-height: 1.45;
+  font-size: 1.45rem;
+  line-height: 1.4;
 
-  margin: 20px 0;
-  font-weight: 1000;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+
+  margin: 18px 0;
 }
 
 p {
-  font-family: 'Gothic A1', sans-serif;
-  font-weight: 1000;
+  font-size: 0.95rem;
   line-height: 1.7;
+  font-weight: 500;
 }
 
 
-/* =========================
+/* =========================================================
    시작 화면
-========================= */
+========================================================= */
 
 #start-screen {
   justify-content: center;
@@ -120,199 +169,323 @@ p {
   width: 100%;
 }
 
+
+/* 기존 HAPTI 검사 표시 */
 .emoji {
-  font-size: 37px;
-  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px 16px;
+
+  background: var(--black);
+  color: var(--yellow);
+
+  border-radius: 0;
+
+  font-family: 'Gothic A1', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+
+  margin-bottom: 22px;
+
+  transform: rotate(-2deg);
 }
+
+
+/* 메인 제목 */
 
 .start-content h1 {
-  font-family: 'Gothic A1', sans-serif;
+  position: relative;
 
-  font-size: 32px;
-  font-weight: 400;
-  letter-spacing: -0.5px;
+  font-size: clamp(2rem, 8vw, 2.65rem);
+  line-height: 1.15;
+
+  font-weight: 700;
+  letter-spacing: -2px;
+
+  color: var(--black);
+
+  margin: 0 0 13px;
 }
+
+
+/* 노란색 강조선 */
+
+.start-content h1::after {
+  content: "";
+
+  display: block;
+
+  width: 105px;
+  height: 9px;
+
+  margin: 10px auto 0;
+
+  background: var(--yellow);
+
+  transform: skewX(-20deg);
+}
+
+
+/* 학생인권부 */
 
 .start-content p {
-  color: #777;
+  color: var(--pink);
 
-  font-size: 16px;
-  margin-bottom: 40px;
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  margin: 18px 0 38px;
 }
 
 
-/* =========================
+/* =========================================================
    버튼
-========================= */
+========================================================= */
 
 .main-btn {
   width: 100%;
 
-  border: none;
+  padding: 15px 18px;
+
+  border: 3px solid var(--black);
   border-radius: 0;
 
-  padding: 16px;
-
-  background: #FFD50B;
-  color: #ffffff;
+  background: var(--pink);
+  color: var(--white);
 
   font-family: 'Gothic A1', sans-serif;
-
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 700;
 
   cursor: pointer;
-  transition: 0.2s;
+
+  box-shadow: 5px 5px 0 var(--black);
+
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease;
 }
 
 .main-btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
+  background: var(--pink-dark);
+
+  transform: translate(2px, 2px);
+
+  box-shadow: 3px 3px 0 var(--black);
+}
+
+.main-btn:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 var(--black);
 }
 
 
-.text-btn {
-  border: none;
-  background: none;
+/* 뒤로가기 / 이전 질문 */
 
-  color: #777;
+.text-btn {
+  display: block;
 
   margin: 18px auto 0;
 
-  cursor: pointer;
+  padding: 5px 8px;
+
+  border: none;
+  background: transparent;
+
+  color: var(--gray);
 
   font-family: 'Gothic A1', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
 
-  font-size: 15px;
+  cursor: pointer;
+}
+
+.text-btn:hover {
+  color: var(--pink);
 }
 
 
-/* =========================
-   안내
-========================= */
+/* =========================================================
+   안내 화면
+========================================================= */
+
+#guide-screen {
+  justify-content: flex-start;
+}
+
+#guide-screen h2 {
+  font-size: 1.65rem;
+
+  margin-bottom: 6px;
+
+  color: var(--black);
+}
 
 .guide-text {
-  text-align: center;
+  color: var(--pink);
 
-  color: #666;
+  font-size: 0.9rem;
+  font-weight: 700;
 
-  font-size: 16px;
-  margin-bottom: 28px;
+  margin-bottom: 26px;
 }
 
+
+/* =========================================================
+   축 목록
+========================================================= */
 
 .axis-list {
   display: flex;
   flex-direction: column;
 
-  gap: 12px;
-  margin-bottom: 35px;
-}
+  gap: 10px;
 
+  margin-bottom: 30px;
+}
 
 .axis-item {
   display: flex;
   align-items: center;
 
-  padding: 15px;
+  min-height: 55px;
+
+  padding: 12px 14px;
+
+  background: var(--yellow-soft);
+
+  border-left: 7px solid var(--pink);
 
   border-radius: 0;
-  background: #FFF9DF;
 }
-
 
 .axis-item b {
-  width: 70px;
+  width: 68px;
 
-  color: #FF006E;
+  flex-shrink: 0;
 
-  font-size: 15px;
-  font-weight: 400;
+  color: var(--pink);
+
+  font-size: 0.9rem;
+  font-weight: 800;
 }
-
 
 .axis-item span {
-  color: #555;
-  font-size: 15px;
+  color: var(--black);
+
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 
-/* =========================
-   질문
-========================= */
+/* =========================================================
+   질문 화면
+========================================================= */
 
 .question-top {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
-  color: #777;
+  width: 100%;
 
-  font-size: 14px;
-  margin-bottom: 10px;
+  color: var(--gray);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  margin-bottom: 8px;
 }
 
+
+/* 진행도 */
 
 .progress-bg {
   width: 100%;
-  height: 8px;
+  height: 9px;
 
-  background: #FFF4B8;
+  background: #F0E8B0;
+
   border-radius: 0;
 
   overflow: hidden;
-  margin-bottom: 30px;
-}
 
+  margin-bottom: 28px;
+}
 
 #progress-bar {
   height: 100%;
-  width: 25%;
+  width: 0%;
 
-  background: #FFD50B;
+  background: var(--pink);
 
   transition: width 0.3s ease;
 }
 
 
-/* 축 이름 */
+/* =========================================================
+   축 배지
+   JS에서 내용은 그대로 사용
+========================================================= */
 
 .axis-badge {
-  display: inline-block;
+  display: none;
+
   width: fit-content;
 
-  padding: 7px 12px;
+  padding: 6px 10px;
+
+  background: var(--yellow);
+
+  color: var(--black);
 
   border-radius: 0;
-  background: #FFF4B8;
 
-  color: #FF006E;
+  font-size: 0.78rem;
+  font-weight: 700;
 
-  font-size: 14px;
-  font-weight: 400;
-
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 
 /* 질문 */
 
 #question-text {
-  margin-bottom: 35px;
+  width: 100%;
 
-  font-size: 18px;
-  line-height: 1.5;
+  min-height: 155px;
+
+  display: flex;
+  align-items: center;
+
+  margin: 0;
+
+  color: var(--black);
+
+  font-size: clamp(1.2rem, 5vw, 1.5rem);
+  line-height: 1.55;
+
+  font-weight: 600;
+  letter-spacing: -0.7px;
+
+  text-align: center;
 }
 
 
-/* =========================
-   7단계 선택 영역
-========================= */
+/* =========================================================
+   7단계 척도
+========================================================= */
 
 .scale-area {
   width: 100%;
-  margin-top: auto;
 
-  transform: translateY(-170px);
+  margin-top: auto;
+  padding-top: 22px;
 }
 
 
@@ -321,20 +494,21 @@ p {
   justify-content: space-between;
   align-items: center;
 
-  margin-bottom: 15px;
+  margin-bottom: 13px;
 
-  font-size: 16px;
+  color: var(--pink);
+
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+#scale-left,
+#scale-right {
+  color: var(--pink);
 }
 
 
-#left-label {
-  color: #FF006E;
-}
-
-#right-label {
-  color: #FF006E;
-}
-
+/* 원형 선택지 */
 
 .scale {
   width: 100%;
@@ -343,238 +517,376 @@ p {
   align-items: center;
   justify-content: space-between;
 
-  padding: 0 2px;
+  padding: 0;
 }
 
 
-/* =========================
-   7단계 버튼
-========================= */
+/* 기본 원 */
 
 .scale-btn {
   flex-shrink: 0;
 
   padding: 0;
 
-  background: white;
+  background: var(--white);
 
-  border: 3px solid #FF006E;
+  border: 3px solid var(--pink);
+
+  border-radius: 50% !important;
 
   cursor: pointer;
 
   transition:
-    transform 0.15s ease,
-    background 0.15s ease;
+    transform 0.12s ease,
+    background 0.12s ease,
+    box-shadow 0.12s ease;
 }
 
 
-/* 가장 큰 양쪽 */
+/* 큰 원 */
 
 .scale-1 {
-  width: 58px;
-  height: 58px;
+  width: 55px;
+  height: 55px;
 }
 
 
-/* 중간 */
+/* 중간 원 */
 
 .scale-2 {
-  width: 47px;
-  height: 47px;
+  width: 44px;
+  height: 44px;
 }
 
 
-/* 작은 */
+/* 작은 원 */
 
 .scale-3 {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
 }
 
 
 /* 가운데 */
 
 .scale-4 {
-  width: 26px;
-  height: 26px;
+  width: 25px;
+  height: 25px;
 
-  border-color: #999;
+  border-color: #999999;
 }
 
 
-/* 마우스를 올렸을 때 */
-
-.scale-btn:hover {
-  transform: scale(1.12);
-  background: #FFF4B8;
-}
-
-
-/* 선택했을 때 */
+/* 선택 */
 
 .scale-btn.selected {
-  background: #FFD50B;
+  background: var(--pink);
 
-  border-color: #FF006E;
+  border-color: var(--pink);
 
-  transform: scale(1.1);
+  box-shadow: 0 0 0 4px var(--yellow);
+
+  transform: scale(1.08);
+}
+
+.scale-btn:hover {
+  background: var(--yellow);
+
+  transform: scale(1.08);
 }
 
 
-/* =========================
-   휴대폰
-========================= */
+/* =========================================================
+   특수 질문
+========================================================= */
 
-@media (max-width: 480px) {
+#special-question-screen {
+  text-align: center;
+}
 
-  .scale {
-    padding: 0;
-  }
-
-  .scale-1 {
-    width: 48px;
-    height: 48px;
-  }
-
-  .scale-2 {
-    width: 40px;
-    height: 40px;
-  }
-
-  .scale-3 {
-    width: 31px;
-    height: 31px;
-  }
-
-  .scale-4 {
-    width: 23px;
-    height: 23px;
-  }
-
+#special-question-screen .question-top {
+  text-align: left;
 }
 
 
-/* =========================
-   숨김
-========================= */
+/* 특수 질문 진행바 */
 
-.hidden {
-  display: none !important;
+#special-progress-bar {
+  height: 100%;
+  width: 0%;
+
+  background: var(--pink);
+
+  transition: width 0.3s ease;
 }
 
 
-/* =========================
-   로딩
-========================= */
+/* 기존 축 배지는 디자인만 숨김 */
+
+#special-axis-badge {
+  display: none;
+}
+
+
+/* 특수 질문 */
+
+#special-question-text {
+  min-height: 175px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+
+  font-size: clamp(1.2rem, 5vw, 1.5rem);
+  line-height: 1.55;
+
+  font-weight: 600;
+  letter-spacing: -0.7px;
+}
+
+
+/* 선택지 */
+
+.special-options {
+  display: flex;
+
+  gap: 10px;
+
+  width: 100%;
+
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.special-btn {
+  flex: 1;
+
+  min-height: 115px;
+
+  padding: 15px 10px;
+
+  border: 3px solid var(--black);
+  border-radius: 0;
+
+  background: var(--white);
+  color: var(--black);
+
+  font-family: 'Gothic A1', sans-serif;
+
+  font-size: 0.9rem;
+  line-height: 1.45;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 4px 4px 0 var(--pink);
+
+  transition:
+    transform 0.12s ease,
+    background 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.special-btn:hover {
+  background: var(--yellow);
+
+  transform: translate(2px, 2px);
+
+  box-shadow: 2px 2px 0 var(--pink);
+}
+
+.special-btn:active {
+  transform: translate(4px, 4px);
+
+  box-shadow: 0 0 0 var(--pink);
+}
+
+
+/* =========================================================
+   로딩 화면
+========================================================= */
 
 #loading-screen {
   justify-content: center;
   align-items: center;
+
   text-align: center;
 }
 
-
-.loading-icon {
-  font-size: 55px;
-  animation: spin 1.2s infinite;
+.loading-content {
+  width: 100%;
 }
 
+.loading-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-@keyframes spin {
+  width: 92px;
+  height: 92px;
 
+  margin-bottom: 25px;
+
+  background: var(--yellow);
+
+  border: 4px solid var(--black);
+
+  color: var(--black);
+
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.85rem;
+
+  animation: loadingPop 1s infinite ease-in-out;
+}
+
+@keyframes loadingPop {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(-4deg) scale(1);
   }
 
   50% {
-    transform: scale(1.2);
+    transform: rotate(4deg) scale(1.08);
   }
 
   100% {
-    transform: rotate(360deg);
+    transform: rotate(-4deg) scale(1);
   }
+}
 
+#loading-screen h2 {
+  font-size: 1.5rem;
+  line-height: 1.5;
+
+  margin-bottom: 8px;
+}
+
+#loading-screen p {
+  color: var(--gray);
+
+  font-size: 0.85rem;
 }
 
 
-/* =========================
-   결과
-========================= */
+/* =========================================================
+   결과 화면
+========================================================= */
 
 #result-screen {
   text-align: center;
 }
 
 
-/* 최종 유형 코드
-   → 픽셀체 */
+/* 결과 이미지 */
+
+.result-image-box {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 16px;
+}
+
+.result-image-box img {
+  display: block;
+
+  width: min(100%, 270px);
+  height: auto;
+
+  border: 3px solid var(--black);
+
+  box-shadow: 6px 6px 0 var(--yellow);
+}
+
+
+/* 결과 코드 */
 
 .result-code {
+  display: inline-block;
+
+  padding: 7px 11px;
+
+  margin-top: 5px;
+
+  background: var(--black);
+  color: var(--yellow);
+
   font-family: 'Press Start 2P', monospace;
 
-  font-size: 30px;
+  font-size: 1rem;
   font-weight: 400;
 
-  color: #FF006E;
+  letter-spacing: 0;
 
-  margin-top: 15px;
   line-height: 1.5;
 }
 
 
-/* 최종 유형 이름 */
+/* 결과 유형 이름 */
 
 #result-type-title {
   font-family: 'Gothic A1', sans-serif;
 
-  font-size: 25px;
-  font-weight: 400;
+  font-size: 1.55rem;
+  line-height: 1.3;
 
-  margin: 10px 0 28px;
+  font-weight: 700;
+  letter-spacing: -1px;
+
+  color: var(--black);
+
+  margin: 12px 0 22px;
 }
 
 
-/* =========================
-   결과 설명
-========================= */
+/* =========================================================
+   결과 설명 박스
+========================================================= */
 
 .result-box {
-  background: #FFF9DF;
+  position: relative;
+
+  background: var(--yellow-soft);
+
+  border-left: 7px solid var(--pink);
 
   border-radius: 0;
 
-  padding: 18px;
-  margin-bottom: 12px;
+  padding: 16px 15px;
+
+  margin-bottom: 10px;
 
   text-align: left;
 }
 
-
 .result-box h3 {
   font-family: 'Gothic A1', sans-serif;
 
-  font-size: 17px;
-  font-weight: 400;
+  font-size: 0.92rem;
+  font-weight: 800;
 
-  margin: 0 0 8px;
+  color: var(--pink);
 
-  color: #FF006E;
+  margin: 0 0 7px;
 }
-
 
 .result-box p {
   margin: 0;
 
-  font-size: 15px;
-  color: #555;
+  color: #333333;
 
+  font-size: 0.85rem;
   line-height: 1.7;
+
+  font-weight: 500;
 }
 
 
-/* =========================
+/* =========================================================
    축 결과
-========================= */
+========================================================= */
 
 .axis-result {
   display: grid;
@@ -582,64 +894,30 @@ p {
   grid-template-columns: 1fr 1fr;
 
   gap: 8px;
-  margin: 18px 0 25px;
+
+  margin: 15px 0 24px;
 }
 
-
 .axis-result div {
-  background: #FFF9DF;
+  padding: 10px 7px;
+
+  background: var(--white);
+
+  border: 2px solid var(--black);
 
   border-radius: 0;
 
-  padding: 10px;
+  color: var(--black);
 
-  font-size: 14px;
-  color: #555;
+  font-size: 0.78rem;
+  font-weight: 700;
 }
 
 
-/* =========================
-   휴대폰
-========================= */
-
-@media (max-width: 480px) {
-
-  body {
-    padding: 20px 12px;
-  }
-
-  .app-card {
-    width: 85%;
-
-    min-height: auto;
-    max-width: 380px;
-
-    border-radius: 0;
-    padding: 28px 20px;
-  }
-
-  .start-content h1 {
-    font-size: 30px;
-  }
-
-  #question-text {
-    font-size: 22px;
-  }
-
-  .option-btn {
-    font-size: 16px;
-  }
-
-  .result-code {
-    font-size: 27px;
-  }
-
-}
-
-
-/* =========================
+/* =========================================================
    장식 이미지
-========================= */
+   기존 JS의 rotateTurnImage()와 그대로 연결
+========================================================= */
 
 .turn-image {
   position: fixed;
@@ -652,287 +930,246 @@ p {
 
   z-index: 1000;
 
+  pointer-events: none;
+
   transform: rotate(0deg);
 
-  transition: transform 0.6s ease-in-out;
-}
-
-
-/* 모든 박스/버튼 모서리 각지게 */
-
-* {
-  border-radius: 0 !important;
-}
-
-.scale-btn {
-  border-radius: 50% !important;
-}
-```css
-/* =========================
-   특수질문
-========================= */
-
-#special-question-screen {
-  text-align: center;
-}
-
-#special-question-screen .question-top {
-  text-align: left;
-}
-
-#special-question-screen .axis-badge {
-  margin-top: 10px;
-  margin-bottom: 25px;
-}
-
-#special-question-text {
-  font-size: 23px;
-  line-height: 1.5;
-  margin: 0;
-  min-height: 105px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-/* =========================
-   특수질문 선택지
-========================= */
-
-.special-options {
-  display: flex;
-  gap: 12px;
-
-  width: 100%;
-
-  margin-top: auto;
-  margin-bottom: 70px;
-}
-
-
-.special-btn {
-  flex: 1;
-
-  min-height: 110px;
-
-  border: 3px solid #FF006E;
-  background: white;
-
-  color: #222;
-
-  font-family: 'Gothic A1', sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-
-  cursor: pointer;
-
   transition:
-    transform 0.15s ease,
-    background 0.15s ease,
-    color 0.15s ease;
+    transform 0.6s ease-in-out;
 }
 
 
-.special-btn:hover {
-  background: #FFF4B8;
-  transform: translateY(-3px);
+/* =========================================================
+   숨김
+========================================================= */
+
+.hidden {
+  display: none !important;
 }
 
 
-.special-btn:active {
-  transform: scale(0.97);
-}
-
-
-/* =========================
-   휴대폰
-========================= */
+/* =========================================================
+   모바일
+========================================================= */
 
 @media (max-width: 480px) {
 
+  body {
+    padding: 16px 10px 30px;
+
+    background-attachment: scroll;
+  }
+
+  .app-card {
+    width: 100%;
+
+    min-height: 650px;
+
+    padding: 28px 18px;
+
+    border-width: 3px;
+
+    box-shadow: 6px 6px 0 var(--black);
+  }
+
+
+  .screen {
+    min-height: 590px;
+  }
+
+
+  /* 시작 */
+
+  .emoji {
+    font-size: 0.9rem;
+
+    padding: 8px 13px;
+
+    margin-bottom: 19px;
+  }
+
+  .start-content h1 {
+    font-size: 2rem;
+
+    letter-spacing: -1.6px;
+  }
+
+  .start-content p {
+    font-size: 0.82rem;
+
+    margin-bottom: 32px;
+  }
+
+
+  /* 버튼 */
+
+  .main-btn {
+    padding: 14px 16px;
+
+    font-size: 0.95rem;
+  }
+
+
+  /* 안내 */
+
+  #guide-screen h2 {
+    font-size: 1.4rem;
+  }
+
+  .axis-item {
+    min-height: 52px;
+
+    padding: 10px 12px;
+  }
+
+  .axis-item b {
+    width: 62px;
+
+    font-size: 0.82rem;
+  }
+
+  .axis-item span {
+    font-size: 0.82rem;
+  }
+
+
+  /* 질문 */
+
+  #question-text {
+    min-height: 185px;
+
+    font-size: 1.2rem;
+  }
+
+  .scale-area {
+    padding-top: 15px;
+  }
+
+  .scale-labels {
+    font-size: 0.75rem;
+  }
+
+  .scale-1 {
+    width: 46px;
+    height: 46px;
+  }
+
+  .scale-2 {
+    width: 38px;
+    height: 38px;
+  }
+
+  .scale-3 {
+    width: 30px;
+    height: 30px;
+  }
+
+  .scale-4 {
+    width: 22px;
+    height: 22px;
+  }
+
+
+  /* 특수 질문 */
+
   #special-question-text {
-    font-size: 21px;
-    min-height: 100px;
+    min-height: 185px;
+
+    font-size: 1.18rem;
   }
 
   .special-options {
-    gap: 10px;
-    margin-bottom: 50px;
+    gap: 8px;
   }
 
   .special-btn {
-    min-height: 100px;
+    min-height: 105px;
 
-    font-size: 17px;
-  }
+    padding: 12px 8px;
 
-}
-/* =========================
-   특수 질문
-========================= */
-
-#special-question-screen {
-  text-align: center;
-}
-
-
-/* 위쪽 번호 */
-
-#special-question-screen .question-top {
-  text-align: left;
-}
-
-
-/* 특수질문 진행바 */
-
-#special-progress-bar {
-  height: 100%;
-  width: 0%;
-
-  background: #FFD50B;
-
-  transition: width 0.3s ease;
-}
-
-
-/* 축 이름 */
-
-#special-question-screen .axis-badge {
-  margin-top: 10px;
-  margin-bottom: 25px;
-}
-
-
-/* 질문 */
-
-#special-question-text {
-
-  font-size: 23px;
-  line-height: 1.5;
-
-  margin: 0;
-
-  min-height: 105px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-/* 선택지 */
-
-.special-options {
-
-  display: flex;
-
-  gap: 12px;
-
-  width: 100%;
-
-  margin-top: auto;
-  margin-bottom: 70px;
-}
-
-
-.special-btn {
-
-  flex: 1;
-
-  min-height: 110px;
-
-  border: 3px solid #FF006E;
-
-  background: white;
-
-  color: #222;
-
-  font-family: 'Gothic A1', sans-serif;
-
-  font-size: 18px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition:
-    transform 0.15s ease,
-    background 0.15s ease,
-    color 0.15s ease;
-}
-
-
-.special-btn:hover {
-
-  background: #FFF4B8;
-
-  transform: translateY(-3px);
-}
-
-
-.special-btn:active {
-
-  transform: scale(0.97);
-
-}
-
-
-/* 휴대폰 */
-
-@media (max-width: 480px) {
-
-  #special-question-text {
-
-    font-size: 21px;
-
-    min-height: 100px;
-
+    font-size: 0.8rem;
   }
 
 
-  .special-options {
+  /* 결과 */
 
-    gap: 10px;
-
-    margin-bottom: 50px;
-
+  .result-image-box img {
+    width: min(100%, 250px);
   }
 
+  .result-code {
+    font-size: 0.82rem;
+  }
+
+  #result-type-title {
+    font-size: 1.35rem;
+  }
+
+  .result-box {
+    padding: 14px 13px;
+  }
+
+  .result-box h3 {
+    font-size: 0.86rem;
+  }
+
+  .result-box p {
+    font-size: 0.8rem;
+  }
+
+  .axis-result div {
+    font-size: 0.72rem;
+  }
+
+
+  /* 장식 이미지 */
+
+  .turn-image {
+    right: -105px;
+    bottom: -105px;
+
+    width: 290px;
+  }
+}
+
+
+/* =========================================================
+   아주 작은 화면
+========================================================= */
+
+@media (max-width: 360px) {
+
+  body {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .app-card {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .scale-1 {
+    width: 40px;
+    height: 40px;
+  }
+
+  .scale-2 {
+    width: 34px;
+    height: 34px;
+  }
+
+  .scale-3 {
+    width: 27px;
+    height: 27px;
+  }
+
+  .scale-4 {
+    width: 20px;
+    height: 20px;
+  }
 
   .special-btn {
-
-    min-height: 100px;
-
-    font-size: 17px;
-
+    font-size: 0.75rem;
   }
-
-}
-.special-options {
-  transform: translateY(-200px);
-}
-
-#axis-badge {
-  display: none;
-}
-
-#axis-badge,
-#special-axis-badge {
-  display: none;
-}
-.special-options {
-  transform: translateY(-70px);
-}
-.result-image-box {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.result-image-box img {
-  width: 280px;
-  height: auto;
-  display: block;
-}
+                  }
